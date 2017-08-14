@@ -14,9 +14,9 @@ app.factory('UserService',function($http){
 		 return $http.post(MAINURL+"/loginUser",user)
 	 }
 	
-	userservice.loginUser=function(user){
+	userservice.userLogout=function(){
 		
-		 return $http.get(MAINURL+"/logoutUser",user)
+		 return $http.post(MAINURL+"/logotUser")
 	 }
 	
 	return userservice;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-var app=angular.module("app",['ngRoute']);
+var app=angular.module("app",['ngRoute','ngCookies']);
 app.config(function ($routeProvider){
 	$routeProvider
 	.when('/home',{
@@ -18,10 +18,7 @@ app.config(function ($routeProvider){
 	templateUrl:'views/Login.html'	
 	})
 	
-	.when('/logout',{
-	controller:'UserController',
-	templateUrl:'views/Login.html'	
-	})
+	
 	
 	.when('/blog',{
 	templateUrl:'views/Blog.html'	
@@ -34,6 +31,13 @@ app.config(function ($routeProvider){
 		.when('/signup',{
 	controller:'UserController',
 	templateUrl:'views/Signup.html'
+	})
+	
+	app.run(function ($rootScope,$cookieStore,UserService,$location){
+		if($rootScope.currentUser==undefined)
+			$rootScope.currentUser=$cookieStore.get("currentUser")
+			
+			
 	})
 	
 })

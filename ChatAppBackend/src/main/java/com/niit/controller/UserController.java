@@ -57,26 +57,33 @@ public class UserController
 	@RequestMapping(value="/loginUser",method=RequestMethod.POST)
 	public ResponseEntity<?>loginUser(@RequestBody User user,HttpSession session)
 	{
-
+		
 		User loginuser=userDao.loginUser(user);
 		if(loginuser==null){
 			Error error=new Error(4,"Invalid Login credentials Please check!!");
 			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 			
 		}
-		user.setOnline(true);
+		loginuser.setOnline(true);
+		System.out.println(loginuser.isOnline());
 		userDao.onlinestatus(loginuser);
+		System.out.println(loginuser.isOnline());
 		session.setAttribute("username",loginuser.getUsername());
-		return new ResponseEntity<User>(user,HttpStatus.OK);
+		System.out.println(session.getAttribute("username"));
+		return new ResponseEntity<User>(loginuser,HttpStatus.OK);
 		
 	}
 	
-	@RequestMapping(value="/logoutUser",method=RequestMethod.GET)
-	public ResponseEntity<?> logoutUser(@RequestBody User user,HttpSession session){
+	@RequestMapping(value="/logotUser",method=RequestMethod.POST)
+	public ResponseEntity<?> logoutUser(HttpSession session){
+	
 		String username=(String) session.getAttribute("username");
+		
 		User userlogout=userDao.validateUsername(username);
-		user.setOnline(false);
-		userDao.onlinestatus(user);
+		
+		userlogout.setOnline(false);
+		System.out.println(userlogout.isOnline());
+		userDao.onlinestatus(userlogout);
 		session.invalidate();
 		return new ResponseEntity<Void>(HttpStatus.OK);
 		

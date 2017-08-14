@@ -53,7 +53,8 @@ color:  #FFFFFF;
            <ul class="nav navbar-nav navbar-right">
       <li><a href="#/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-       <li><a href="#/logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+      <li><a href="" ng-show="currentUser.firstname">{{currentUser.firstname}}</a></li>
+       <li><a href="#/logout" ng-click="userLogout()"  ng-controller="UserController" ng-show="currentUser.firstname">Log out</a></li>
       <li><a href="#/home"><span class="glyphicon glyphicon-arrow-left"></span> Back </a></li>
       
     </ul>
@@ -68,6 +69,8 @@ color:  #FFFFFF;
 <script type="text/javascript"
 src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="controller/UserController.js"></script>
 <script type="text/javascript" src="service/UserService.js"></script>
