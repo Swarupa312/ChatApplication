@@ -13,7 +13,8 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
+import com.niit.Model.BlogPost;
+import com.niit.Model.Job;
 import com.niit.Model.User;
 
 @Configuration
@@ -30,7 +31,7 @@ public class DBConfig
 		properties.setProperty("hibernate.showsql","true");	
 		localsessionfactory.addProperties(properties);
 		Class classes[]=new Class[]{
-				User.class
+				User.class,Job.class,BlogPost.class
 		};
 		return localsessionfactory.addAnnotatedClasses(classes).buildSessionFactory();
 	}

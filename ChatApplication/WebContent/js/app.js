@@ -20,8 +20,8 @@ app.config(function ($routeProvider){
 	
 	
 	
-	.when('/blog',{
-	templateUrl:'views/Blog.html'	
+	.when('/writeblog',{
+	templateUrl:'views/BlogPost.html'	
 	})
 	
 	.when('/forums',{
@@ -33,7 +33,22 @@ app.config(function ($routeProvider){
 	templateUrl:'views/Signup.html'
 	})
 	
-	app.run(function ($rootScope,$cookieStore,UserService,$location){
+	.when('/edituser',{
+		controller:'UserController',
+		templateUrl:'views/EditProfile.html'
+	})
+	
+	.when('/savejob',{
+		controller:'JobController',
+		templateUrl:'views/SaveJob.html'
+	})
+	
+	.when('/showjob',{
+		controller:'JobController',
+		templateUrl:'views/Showjob.html'
+	})
+	
+	app.run(function ($rootScope,$cookieStore,UserService,JobService,$location){
 		if($rootScope.currentUser==undefined)
 			$rootScope.currentUser=$cookieStore.get("currentUser")
 			

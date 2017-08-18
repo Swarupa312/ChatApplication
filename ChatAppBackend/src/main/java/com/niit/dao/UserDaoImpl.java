@@ -46,11 +46,16 @@ public class UserDaoImpl implements UserDao {
 		}
 
 	
-		public void onlinestatus(User user) {
+		public void updateUser(User user) {
 			Session session=sessionFactory.getCurrentSession();	
+			
 			session.update(user);
+			
+			
 		}
 
+		
+		
 
 		
 	

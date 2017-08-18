@@ -19,5 +19,12 @@ app.factory('UserService',function($http){
 		 return $http.post(MAINURL+"/logotUser")
 	 }
 	
+	userservice.getUser=function(){
+		return $http.get(MAINURL+"/getuser")
+	}
+	
+	userservice.updateUser=function(user){
+		return $http.put(MAINURL+"/updateuser",user)
+	}
 	return userservice;
 })

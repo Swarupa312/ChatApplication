@@ -1,0 +1,70 @@
+
+
+<style>
+.form-job
+{
+    max-width:400px;
+     margin: 0 auto; 
+     
+}
+.form-job .form-control
+{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.account
+{
+    padding: 10px 0px 20px 0px;
+    background-color: #f7f7f7;
+  	width:500px;
+  	font-size:20px;
+	
+}
+</style>
+
+
+<div class="container">
+
+<div class="row">
+<div class="col-sm-offset-6">
+<div class="account">
+<form class="form-job">
+
+<h3>jobs </h3>
+<font color="red">{{error.message}}</font>
+<label><b><font face="Garamond" size="4px">title</font></b></label>
+<input type="text" class="form-control" ng-model="job.jtitle">
+
+<label><b><font face="Garamond" size="4px">deccription</font></b></label>
+<input type="text" class="form-control" ng-model="job.jdesc">
+
+<label><b><font face="Garamond" size="4px">skills</font></b></label>
+<input type="text" class="form-control" ng-model="job.jskills">
+
+<label><b><font face="Garamond" size="4px">exp</font></b></label>
+<input type="text" class="form-control" ng-model="job.jyrsofexp">
+salary<input type="text" class="form-control" ng-model="job.jsalary"><br>
+company<input type="text" class="form-control" ng-model="job.jcompany">
+
+<label><b><font face="Garamond" size="4px">location</font></b></label>
+<input type="text" class="form-control" ng-model="job.jlocation">
+
+<label><b><font face="Garamond" size="4px">date</font></b></label>
+<!-- <input type="hidden" class="form-control" ng-model="job.jpostedon" value="15/08/2017"> -->
+                
+               <br><br>
+                
+                <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="saveJob()">
+                   Save</button>
+</form>
+</div>
+</div>
+</div>
+</div>

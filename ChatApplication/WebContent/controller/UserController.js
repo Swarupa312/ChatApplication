@@ -2,6 +2,17 @@
  * 
  */
 app.controller('UserController', function(UserService,$scope,$location,$rootScope,$cookieStore){
+	if($rootScope.currentUser!=undefined){
+		UserService.getUser().then(function(response){
+		$scope.user=response.data;	
+		},function(response){
+		console.log(response.status)
+		$location.path('/home')
+		})
+	}
+	
+	
+	
 	
 	$scope.registerUser=function(){
 		
@@ -48,6 +59,22 @@ $scope.userLogout=function(){
 		console.log(response.status)
 		console.log(response.data)
 		$location.path("/signup")
+	})
+}
+
+$scope.updateUser=function(){
+	
+	UserService.updateUser($scope.user).then(function(response){
+		alert("Updated Successsfully")
+		$location.path('/home')
+	},function(response){
+		console.log(response.data)
+		alert("unsuccessful")
+		if(response.status==401)
+			$location.path('/login')
+			$scope.error=response.data
+			console.log(error.message)
+			$loction.path('/edituser')
 	})
 }
 

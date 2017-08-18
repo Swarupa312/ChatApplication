@@ -5,12 +5,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.niit.Model.Error;
 import com.niit.Model.User;
 import com.niit.dao.UserDao;
@@ -28,7 +27,7 @@ public class UserController
 	{
 		try
 		{
-		System.out.println("controller");
+		
 		User existUser=userDao.validateUsername(user.getUsername());
 		if(existUser!=null)
 		{
@@ -65,11 +64,11 @@ public class UserController
 			
 		}
 		loginuser.setOnline(true);
-		System.out.println(loginuser.isOnline());
-		userDao.onlinestatus(loginuser);
-		System.out.println(loginuser.isOnline());
+		
+		userDao.updateUser(loginuser);
+		
 		session.setAttribute("username",loginuser.getUsername());
-		System.out.println(session.getAttribute("username"));
+		
 		return new ResponseEntity<User>(loginuser,HttpStatus.OK);
 		
 	}
@@ -83,9 +82,42 @@ public class UserController
 		
 		userlogout.setOnline(false);
 		System.out.println(userlogout.isOnline());
-		userDao.onlinestatus(userlogout);
+		userDao.updateUser(userlogout);
 		session.invalidate();
 		return new ResponseEntity<Void>(HttpStatus.OK);
 		
+	}
+	
+	
+	
+	@RequestMapping(value="/getuser", method=RequestMethod.GET)
+	public ResponseEntity<?> getuser(HttpSession session){
+		if(session.getAttribute("username")==null){
+			Error error=new Error(5,"Unauthorized");
+			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);	
+		}
+		String username=(String) session.getAttribute("username");
+		User user=userDao.validateUsername(username);
+		return new ResponseEntity<User>(user,HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/updateuser",method=RequestMethod.PUT)
+	public ResponseEntity<?> updateUser(@RequestBody User user, HttpSession session){
+		
+		
+		if(session.getAttribute("username")==null){
+			Error error=new Error(5,"Unauthorized");
+			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);	
+		}
+		try{
+		userDao.updateUser(user);
+		
+		return new ResponseEntity<Void>(HttpStatus.OK);
+		
+		}
+		catch(Exception e){
+			Error error=new Error(1,"Unable to make changes please do again!!"+e.getMessage());
+			return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);	
+		}
 	}
 }

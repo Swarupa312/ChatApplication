@@ -7,5 +7,6 @@ public interface UserDao {
  User validateUsername(String username);
  User validateEmail(String email);
  User loginUser(User user);
-void onlinestatus(User user);
+void updateUser(User user);
+
 }

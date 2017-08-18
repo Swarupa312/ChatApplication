@@ -1,0 +1,49 @@
+
+<style>
+.form-blog
+{
+    max-width:400px;
+     margin: 0 auto; 
+     
+}
+.form-blog .form-control
+{
+width:40%;
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.account
+{
+    padding: 10px 0px 20px 0px;
+    background-color: #f7f7f7;
+  	width:500px;
+  	font-size:20px;
+	
+}
+</style>
+<div class="container">
+<div class="row">
+        <div class="col-sm-6">
+<div class="account">
+
+            <form class="form-blog"><br><br>
+            <h2>Write your blog here......!!!!</h2><br>
+         	<div class="form group">
+         	<label>Blog Title</label>
+            <input type="text" class="form-control" ng-model="blog.blogtitle" placeholder="Enter the title"></div>
+            <div class="form group"><br>
+            <label>Blog</label>
+            <textarea class="form-control" rows="6" cols="10" ng-model="blog.blogdesc" placeholder="Write your block here...."></textarea>
+                </div><br><br>
+                <button class="btn btn-lg btn-success" type="submit" ng-click="saveBlog()">
+                    Save</button>
+</form>
+</div>
+</div>
+</div>
+</div>

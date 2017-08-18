@@ -1,8 +1,12 @@
 com\niit\controller\UserController.class
+com\niit\controller\JobController.class
 com\niit\configuration\DBConfig.class
+com\niit\Model\Job.class
+com\niit\dao\JobDao.class
 com\niit\Model\User.class
 com\niit\dao\UserDao.class
 com\niit\configuration\WebAppInitializer.class
 com\niit\configuration\WebConfig.class
+com\niit\dao\JobDaoImpl.class
 com\niit\dao\UserDaoImpl.class
 com\niit\Model\Error.class

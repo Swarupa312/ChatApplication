@@ -1,0 +1,71 @@
+
+
+<style>
+.form-showjob
+{
+    max-width:700px;
+     margin: 0 auto; 
+    
+     
+}
+.form-showjob .form-control
+{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.account
+{
+    padding: 10px 0px 20px 0px;
+    background-color: #f7f7f7;
+  	width:700px;
+  	font-size:20px;
+  	align:center;
+}
+
+</style>
+
+<div class="container">
+
+<div class="row">
+
+<div class="account">
+<form class="form-showjob">
+<center>Job Details</center>
+Search<input type="text" ng-model="jobSearch" placeholder="serch here..!">
+<table class="table table-bordered">
+
+<thead>
+<tr><td>Title</td><td>Date : posted on</td></tr>
+</thead>
+<tbody>
+<tr ng-repeat="job in jobs | filter:jobSearch">
+<td><a href="" ng-click="getJobById(job.jid)">{{job.jtitle}}</a></td><td>{{job.jpostedon | date:'yyyy-MM-dd'}}</td></tr>
+</tbody>
+
+</table>
+<br><br>
+<div ng-show="showjob">
+<font color="MIDNIGHTBLUE" face="verdana">
+Title:   {{jobid.jtitle}}<br>
+
+Company:   {{jobid.jcompany}}<br>
+Description:   {{jobid.jdesc}}<br>
+Salary:   Rs{{jobid.jsalary}}<br>
+Skills:   {{jobid.jskills}}<br>
+Experience:   {{jobid.jyrsofexp}}years<br>
+Location:   {{jobid.jlocation}}<br>
+Posted On:   {{jobid.jpostedon| date:'yyyy/MM/dd'}}<br>
+</font>
+  </div>
+          
+</form>
+</div>
+</div>
+</div>

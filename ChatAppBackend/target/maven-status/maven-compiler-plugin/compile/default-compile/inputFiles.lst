@@ -1,8 +1,12 @@
+C:\Users\owner\workspace\ChatAppBackend\src\main\java\com\niit\Model\Job.java
+C:\Users\owner\workspace\ChatAppBackend\src\main\java\com\niit\controller\JobController.java
 C:\Users\owner\workspace\ChatAppBackend\src\main\java\com\niit\configuration\WebConfig.java
 C:\Users\owner\workspace\ChatAppBackend\src\main\java\com\niit\dao\UserDao.java
 C:\Users\owner\workspace\ChatAppBackend\src\main\java\com\niit\dao\UserDaoImpl.java
+C:\Users\owner\workspace\ChatAppBackend\src\main\java\com\niit\dao\JobDao.java
 C:\Users\owner\workspace\ChatAppBackend\src\main\java\com\niit\configuration\WebAppInitializer.java
 C:\Users\owner\workspace\ChatAppBackend\src\main\java\com\niit\controller\UserController.java
+C:\Users\owner\workspace\ChatAppBackend\src\main\java\com\niit\dao\JobDaoImpl.java
 C:\Users\owner\workspace\ChatAppBackend\src\main\java\com\niit\Model\Error.java
 C:\Users\owner\workspace\ChatAppBackend\src\main\java\com\niit\Model\User.java
 C:\Users\owner\workspace\ChatAppBackend\src\main\java\com\niit\configuration\DBConfig.java
