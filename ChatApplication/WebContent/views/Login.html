@@ -2,7 +2,7 @@
 <style>
 .form-Login
 {
-    max-width: 330px;
+    max-width: 350px;
    padding: 15px; 
      margin: 0 auto; 
 }
@@ -22,6 +22,11 @@
     margin-top: 20px;
     padding: 40px 0px 20px 0px;
     background-color: #f7f7f7;
+    background-image:url("images/bg7(1).jpg");
+    border: 2px solid white;
+    border-radius: 8px;
+    width:400px;
+	
    
 }
 .profile-img
@@ -34,7 +39,17 @@
     border-radius: 50%;
 }
 
+.new-account:hover{
+background-color:#FFFFFF;
 
+}
+.new-account{
+color:#191970;
+}
+
+.btn-block{
+background-color:#20B2AA;
+}
 </style>
 
 
@@ -45,17 +60,17 @@
         <div class="col-sm-6 col-md-4 col-md-offset-4">
            
             <div class="account-wall">
-                <img class="profile-img" src="images/person1.jpg"
+                <img class="profile-img" src="images/login.png"
                     alt="">
                 <form class="form-Login">
-                <input type="text" class="form-control" placeholder="User name" ng-model="user.username" required autofocus>
-                <input type="password" class="form-control" placeholder="Password" ng-model="user.password" required>
-                <button class="btn btn-lg btn-success btn-block" type="submit" ng-click="userLogin()">
+                <input type="text" class="form-control" placeholder="User name" ng-model="user.username" required autofocus><br>
+                <input type="password" class="form-control" placeholder="Password" ng-model="user.password" required><br>
+                <button class="btn btn-block" type="submit" ng-click="userLogin()">
                     Log in</button>
                    
                 <br>
                
-                <a href="Signup.html" class="text-center new-account">Create an account</a>
+               <h4> <a href="#/signup" class="new-account">Not registerd? Create New account</a></h4>
                 </form>
             </div>
             

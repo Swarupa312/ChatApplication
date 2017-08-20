@@ -3,7 +3,7 @@
 <style>
 .form-job
 {
-    max-width:400px;
+    max-width:500px;
      margin: 0 auto; 
      
 }
@@ -23,9 +23,15 @@
 {
     padding: 10px 0px 20px 0px;
     background-color: #f7f7f7;
-  	width:500px;
+  	width:600px;
   	font-size:20px;
+  	border: 2px solid white;
+    border-radius: 8px;
+    background-image:url("images/bg7(1).jpg");
 	
+}
+.btn-block{
+background-color:#20B2AA;
 }
 </style>
 
@@ -33,7 +39,7 @@
 <div class="container">
 
 <div class="row">
-<div class="col-sm-offset-6">
+<div class="col-sm-6 col-md-4 col-md-offset-4">
 <div class="account">
 <form class="form-job">
 
@@ -61,7 +67,7 @@ company<input type="text" class="form-control" ng-model="job.jcompany">
                 
                <br><br>
                 
-                <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="saveJob()">
+                <button class="btn btn-block" type="submit" ng-click="saveJob()">
                    Save</button>
 </form>
 </div>

@@ -21,6 +21,7 @@ app.config(function ($routeProvider){
 	
 	
 	.when('/writeblog',{
+		controller:'BlogPostController',
 	templateUrl:'views/BlogPost.html'	
 	})
 	
