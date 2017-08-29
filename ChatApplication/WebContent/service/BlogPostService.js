@@ -7,5 +7,24 @@ app.factory('BlogPostService',function($http){
 	blogpostservice.saveBlog=function(blog){
 		return $http.post(MAINURL+"/saveblog",blog)
 	}
+	
+	blogpostservice.getBlogPostWaiting=function(){
+
+		return $http.get(MAINURL+"/getblog/"+0)
+	}
+	
+	blogpostservice.getBlogPostapproved=function(){
+		return $http.get(MAINURL+"/getblog/"+1)
+	}
+	blogpostservice.getBlogById=function(blogid){
+		return $http.get(MAINURL+"/getblogbyid/"+blogid)
+	}
+	
+	blogpostservice.updateBlog=function(blog){
+		alert("in service")
+		return $http.put(MAINURL+"/updateblog",blog)
+	}
+	
+	
 	return blogpostservice;
 })

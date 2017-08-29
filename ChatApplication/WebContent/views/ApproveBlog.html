@@ -1,0 +1,9 @@
+<div>
+<form>
+{{blog.blogtitle}}
+{{blog.blogdesc}}
+<input type="radio" ng-model="blog.approved" value="True">Accept
+<input type="radio" ng-model="blog.approved" value="False">Reject
+<input type="submit" value="submit" ng-click="updateBlog()">
+</form>
+</div>

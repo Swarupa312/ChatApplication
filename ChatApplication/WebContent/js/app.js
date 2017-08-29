@@ -25,6 +25,22 @@ app.config(function ($routeProvider){
 	templateUrl:'views/BlogPost.html'	
 	})
 	
+	.when('/viewblog',{
+		controller:'BlogPostController',
+	templateUrl:'views/ShowBlog.html'	
+	})
+	
+	
+	.when('/getblogbyidwaiting/:blogid',{
+		controller:'BlogPostDetailsController',
+	templateUrl:'views/ApproveBlog.html'	
+	})
+	
+	.when('/getblogbyidapproved/:blogid',{
+		controller:'BlogPostDetailsController',
+	templateUrl:'views/BlogComment.html'	
+	})
+	
 	.when('/forums',{
 	templateUrl:'views/Forums.html'	
 	})
@@ -49,11 +65,12 @@ app.config(function ($routeProvider){
 		templateUrl:'views/Showjob.html'
 	})
 	
-	app.run(function ($rootScope,$cookieStore,UserService,JobService,$location){
+})
+
+
+app.run(function ($rootScope,$cookieStore,UserService,JobService,$location){
 		if($rootScope.currentUser==undefined)
 			$rootScope.currentUser=$cookieStore.get("currentUser")
 			
 			
 	})
-	
-})

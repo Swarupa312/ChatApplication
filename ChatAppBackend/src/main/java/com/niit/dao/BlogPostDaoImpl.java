@@ -1,7 +1,10 @@
 package com.niit.dao;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,26 @@ SessionFactory sessionFactory;
 		Session session=sessionFactory.getCurrentSession();
 		session.save(blogpost);
 		
+	}
+	
+	public List<BlogPost> getblogs(int approved) {
+		Session session=sessionFactory.getCurrentSession();
+		Query query=session.createQuery("from BlogPost where approved="+approved);
+		return query.list();
+	}
+
+	
+	public BlogPost getblogbyid(int blogid) {
+		Session session=sessionFactory.getCurrentSession();
+		BlogPost blogpost=(BlogPost) session.get(BlogPost.class, blogid);
+		return blogpost;
+	}
+
+
+	public void updateBlog(BlogPost blogpost) {
+		Session session=sessionFactory.getCurrentSession();	
+		
+		session.update(blogpost);
 	}
 
 }
