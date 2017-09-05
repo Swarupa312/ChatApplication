@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.niit.Model.Error;
 import com.niit.Model.User;
+import com.niit.Model.BlogComment;
 import com.niit.Model.BlogPost;
 import com.niit.dao.BlogPostDao;
 import com.niit.dao.UserDao;
@@ -30,6 +31,7 @@ UserDao userDao;
 @RequestMapping(value="/saveblog",method=RequestMethod.POST)
 public ResponseEntity<?> saveBlog(@RequestBody BlogPost blogpost,HttpSession session)
 {
+	
 	if(session.getAttribute("username")==null){
 		Error error=new Error(5,"Unauhorized");
 		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
@@ -68,7 +70,7 @@ public ResponseEntity<?> getBlogById(@PathVariable("blogid") int blogid,HttpSess
 		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 	}
 	BlogPost blogpost=blogpostDao.getblogbyid(blogid);
-	System.out.println(blogpost.getBlogtitle());
+	
 	return new ResponseEntity<BlogPost>(blogpost,HttpStatus.OK);
 	
 	
@@ -92,5 +94,40 @@ public ResponseEntity<?> updateBlog(@RequestBody BlogPost blogpost, HttpSession 
 		Error error=new Error(1,"Unable to make changes please do again!!"+e.getMessage());
 		return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);	
 	}
+}
+
+
+@RequestMapping(value="/commentblog",method=RequestMethod.POST)
+public ResponseEntity<?> blogComment(@RequestBody BlogComment blogcomment,HttpSession session)
+{
+	if(session.getAttribute("username")==null){
+		Error error=new Error(5,"Unauhorized");
+		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+	}
+	String username=(String) session.getAttribute("username");
+	User user=userDao.validateUsername(username);
+	blogcomment.setCommentDate(new Date());
+	blogcomment.setCommentedBy(user);
+	try{
+		blogpostDao.addComment(blogcomment);
+		return new ResponseEntity<BlogComment>(blogcomment,HttpStatus.OK);
+	}catch(Exception e){
+		Error error=new Error(1,"Unable to save the blog");
+		return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+}
+@RequestMapping(value="/getcomments/{blogid}", method=RequestMethod.GET)
+public ResponseEntity<?> getblogcomments(@PathVariable("blogid") int blogid,HttpSession session)
+{
+	System.out.println("in controller");
+	if(session.getAttribute("username")==null){
+		Error error=new Error(5,"Unauhorized");
+		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+	}
+	List<BlogComment> commentlist=blogpostDao.getcomments(blogid);
+	System.out.println(commentlist.get(0).getCommentId());
+	return new ResponseEntity<List<BlogComment>>(commentlist,HttpStatus.OK);
+	
 }
 }

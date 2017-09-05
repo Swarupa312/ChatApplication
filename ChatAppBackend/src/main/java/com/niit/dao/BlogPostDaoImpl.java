@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.niit.Model.BlogComment;
 import com.niit.Model.BlogPost;
 
 @Repository
@@ -42,6 +43,19 @@ SessionFactory sessionFactory;
 		Session session=sessionFactory.getCurrentSession();	
 		
 		session.update(blogpost);
+	}
+
+	
+	public void addComment(BlogComment blogcomment) {
+		Session session=sessionFactory.getCurrentSession();
+		session.save(blogcomment);
+	}
+
+	public List getcomments(int blogid) {
+		Session session=sessionFactory.getCurrentSession();
+		Query query=session.createQuery("from BlogComment where blogpost.blogid="+blogid);
+		return query.list();
+		
 	}
 
 }

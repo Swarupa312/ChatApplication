@@ -21,10 +21,17 @@ app.factory('BlogPostService',function($http){
 	}
 	
 	blogpostservice.updateBlog=function(blog){
-		alert("in service")
 		return $http.put(MAINURL+"/updateblog",blog)
 	}
 	
+	blogpostservice.addComment=function(blogComment){
+		
+		return $http.post(MAINURL+"/commentblog",blogComment)
+	}
 	
+	blogpostservice.showComments=function(blogid){
+		alert("in service")
+		return $http.get(MAINURL+"/getcomments/"+blogid)
+	}
 	return blogpostservice;
 })

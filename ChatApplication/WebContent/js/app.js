@@ -65,6 +65,10 @@ app.config(function ($routeProvider){
 		templateUrl:'views/Showjob.html'
 	})
 	
+	.when('/profilepic',{
+		templateUrl:'views/ProfilePicture.html'
+	})
+	
 })
 
 

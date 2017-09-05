@@ -47,7 +47,7 @@ color:  #000000;
       <a class="navbar-brand" href="#/home">BeeTalk</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#/h ome" ng-show="currentUser.firstname">Home</a></li>
+      <li class="active"><a href="#/home" ng-show="currentUser.firstname">Home</a></li>
        <li><a href="#/aboutus" ng-show="currentUser.firstname">About Us</a></li>
         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"  ng-show="currentUser.firstname">Blog<span class="caret"></span></a>
   		<ul class="dropdown-menu"><li><a href="#/writeblog">Write Blog</a></li>
@@ -60,9 +60,17 @@ color:  #000000;
      
           </ul>
            <ul class="nav navbar-nav navbar-right">
+           
+           
+            <li><a href="#profilepic" ng-show="currentUser.username">
+                    <img src="http://localhost:8087/ChatAppBackend/getprofilepic/{{currentUser.username}}" alt="Upload Picture" width="30px" height="20px" class="img-rounded">
+                    </a></li>
+           
+           
+           
       <li><a href="#/signup" ng-hide="currentUser.firstname"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#/login" ng-hide="currentUser.firstname"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      <li><a href="" ng-show="currentUser.firstname">{{currentUser.firstname}}</a></li>
+      <li><a href="#/login" ng-hide="currentUser.firstname"><span class="glyphicons glyphicons-user-key"></span> Login</a></li>
+      <li><a href="" ng-show="currentUser.firstname">{{currentUser.firstname}} {{ currentUser.lastname}}</a></li>
        <li><a href="#/logout" ng-click="userLogout()"  ng-controller="UserController" ng-show="currentUser.firstname">Log out</a></li>
       <li><a href="#/home" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-arrow-left"></span> Back </a></li>
       

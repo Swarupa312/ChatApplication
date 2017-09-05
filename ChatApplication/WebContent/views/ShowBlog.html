@@ -1,4 +1,33 @@
+<style>
 
+
+.form-showblog
+{
+    max-width:500px;
+     margin: 0 auto; 
+     
+}
+
+.account
+{
+    padding: 10px 0px 20px 0px;
+    background-color: #f7f7f7;
+  	width:600px;
+  	font-size:20px;
+  	border: 2px solid white;
+    border-radius: 8px;
+    background-image:url("images/bg7(1).jpg");
+	
+}
+.btn-block{
+background-color:#20B2AA;
+}
+</style>
+
+<div class="container">
+
+
+<form><font color="MIDNIGHTBLUE" size="4px">
 <div ng-show="currentUser.role=='Admin'">
 <h3>Blogs waiting for Approval</h3>
 <table class="table table-responsive">
@@ -7,13 +36,13 @@
 </thead>
 <tbody>
 <tr ng-repeat="blog in blogwaiting">
-<td><a href="#/getblogbyidwaiting/{{blog.blogid}}">{{blog.blogtitle}}></a></td><td>{{blog.author.firstname}}</td><td>{{blog.blogdate | date:'yyyy-MM-dd'}}</td>
+<td><a href="#/getblogbyidwaiting/{{blog.blogid}}">{{blog.blogtitle}}</a></td><td>{{blog.author.firstname}}</td><td>{{blog.blogdate | date:'yyyy-MM-dd'}}</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div>
-
+<div><br><br>
+<h3>Blogs Approved</h3>
 <table class="table table-responsive">
 <thead>
 <tr><th>Title</th><th>Author</th><th>Posted On</th></tr>
@@ -24,4 +53,6 @@
 </tr>
 </tbody>
 </table>
-</div>
+</div></font>
+</form>
+</div></div></div></div>

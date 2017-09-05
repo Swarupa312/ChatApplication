@@ -1,9 +1,53 @@
+
+<style>
+
+.form-approve
+{
+    max-width: 450px;
+   padding: 15px; 
+     margin: 0 auto; 
+}
+
+.account-wall
+{
+    margin-top: 20px;
+    padding: 40px 0px 20px 0px;
+    background-color: #f7f7f7;
+    background-image:url("images/bg7(1).jpg");
+    border: 2px solid white;
+    border-radius: 8px;
+    width:600px;
+	
+   
+}
+</style>
+
+<div class="container">
+
+<div class="row">
+ <div class="col-sm-6 col-md-4 col-md-offset-4">
+<div class="account-wall">
 <div>
-<form>
-{{blog.blogtitle}}
-{{blog.blogdesc}}
-<input type="radio" ng-model="blog.approved" value="True">Accept
-<input type="radio" ng-model="blog.approved" value="False">Reject
+<form class="approve"><center>
+
+<font color="MIDNIGHTBLUE" size="4px">
+
+<h4>Blog Approval</h4><br>
+<label>Title :</label>
+<label>{{blog.blogtitle}}</label><br>
+<br>
+<label>Description :</label>
+<label>{{blog.blogdesc}}</label>
+
+<br><br>
+<input type="radio" ng-model="blog.approved" value="True"><label>Approve</label>&nbsp;&nbsp;	
+<input type="radio" ng-model="blog.approved" value="False"><label>Reject</label>
+<br><br>
 <input type="submit" value="submit" ng-click="updateBlog()">
+
+</font></center>
 </form>
 </div>
+</div>
+</div>
+</div></div>

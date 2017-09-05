@@ -14,8 +14,8 @@ app.controller('BlogPostDetailsController',function($scope,$location,$routeParam
 	})
 	
 	$scope.updateBlog=function(){
+		
 		BlogPostService.updateBlog($scope.blog).then(function(response){
-			alert("Updated Successsfully")
 			$location.path('/viewblog')
 		},function(response){
 			console.log(response.data)
@@ -24,7 +24,39 @@ app.controller('BlogPostDetailsController',function($scope,$location,$routeParam
 				$location.path('/login')
 				$scope.error=response.data
 				console.log(error.message)
-				$loction.path('/')
+				
 		})
 	}
+		$scope.savecomment=function(){
+			alert("in controller")
+			$scope.blogComment.blogpost=$scope.blog
+			BlogPostService.addComment($scope.blogComment).then(function(response){
+				alert("Added")
+			},function(response){
+				console.log(response.status)
+				if(response.status==401)
+				$location.path('/login')
+				$scope.error=response.data
+				console.log(error.message)
+			})
+		}
+		
+		 function showComments(){
+			alert("in controller")
+			BlogPostService.showComments(blogid).then(function(response){
+				console.log(response.data)
+				console.log(response.status)
+				$scope.blogcomments=response.data
+				
+				//alert(blogcomments.commentid)
+			},function(response)
+			{
+				console.log(response.status)
+				if(response.status==401)
+				$location.path('/login')
+				$scope.error=response.data
+				console.log(error.message)
+			})
+		}
+		 showComments();
 })
