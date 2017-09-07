@@ -8,10 +8,13 @@ app.config(function ($routeProvider){
 	templateUrl:'views/Home.html'	
 	})
 	
-	.when('/aboutus',{
-	templateUrl:'views/Aboutus.html'	
+	.when('/contactus',{
+	templateUrl:'views/ContactUs.html'	
 	})
 	
+	.when('/aboutus',{
+	templateUrl:'views/AboutUs.html'	
+	})
 	
 	.when('/login',{
 	controller:'UserController',
@@ -67,6 +70,16 @@ app.config(function ($routeProvider){
 	
 	.when('/profilepic',{
 		templateUrl:'views/ProfilePicture.html'
+	})
+	
+	.when('/suggestedUsers',{
+		controller:'FriendController',
+		templateUrl:'views/SuggestedUsers.html'
+	})
+	
+	.when('/pendingrequests',{
+		controller:'FriendController',
+		templateUrl:'views/PendingRequests.html'
 	})
 	
 })

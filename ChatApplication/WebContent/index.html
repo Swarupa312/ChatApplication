@@ -10,7 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 .navbar-inverse{
-background-color: #20B2AA;
+background-color: #00CED1;
 /* background-image:url("images/bg7(7).jpg") */
 
 }
@@ -19,6 +19,10 @@ background-color: #20B2AA;
 color:#000000;
 
 }
+.navbar-inverse .navbar-nav .active > a{
+    background-color:#20B2AA;
+    color:#FFFFFF;
+}
 .navbar-inverse .navbar-header > a
 {
 
@@ -26,12 +30,17 @@ color:  #000000;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
-    background-color:#000000;
+    background-color:#20B2AA;
+    color:#FFFFFF;
+}
+
+.navbar-inverse .navbar-nav .active > a:hover {
+    background-color:#20B2AA;
     color:#FFFFFF;
 }
 
 .navbar-inverse .navbar-header > a:hover {
-     background-color: #000000;
+     background-color: #20B2AA;
      color:  #FFFFFF;
 }
 </style>
@@ -44,20 +53,35 @@ color:  #000000;
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#/home">BeeTalk</a>
+      <a class="navbar-brand" href="#/home"><span class="glyphicon glyphicon-bishop" style="color:LIGHTCYAN"></span> WeChat</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#/home" ng-show="currentUser.firstname">Home</a></li>
-       <li><a href="#/aboutus" ng-show="currentUser.firstname">About Us</a></li>
-        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"  ng-show="currentUser.firstname">Blog<span class="caret"></span></a>
+      <li class="active"><a href="#/home" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+      <li><a href="#/aboutus" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-globe"></span> About Us</a></li>
+       <li><a href="#/contactus" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-earphone"></span> Contact Us</a></li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"  ng-show="currentUser.firstname"><span class="	glyphicon glyphicon-tasks"></span> Blog<span class="caret"></span></a>
   		<ul class="dropdown-menu"><li><a href="#/writeblog">Write Blog</a></li>
   		<li><a href="#/viewblog">View Blogs</a></li>
   		</ul></li>
-      <li><a href="#/forums" ng-show="currentUser.firstname">Forums</a></li>
-      <li><a href="#/edituser" ng-show="currentUser.firstname">Edit Profile</a>
-      <li><a href="#/savejob" ng-show="currentUser.role=='Admin'">Insert job</a>
-      <li><a href="#/showjob" ng-show="currentUser.firstname">Show job</a>
+      <li><a href="#/forums" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-question-sign"></span> Forums</a></li>
+      <li><a href="#/edituser" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-edit"></span> Edit Profile</a>
+     <!--  <li><a href="#/savejob" ng-show="currentUser.role=='Admin'">Insert job</a>
+      <li><a href="#/viewblog" ng-show="currentUser.firstname">Show job</a> -->
      
+     
+     
+     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.firstname" ><span class="glyphicon glyphicon-list-alt"></span> Job<span class="caret"></span></a>
+  		<ul class="dropdown-menu"><li><a href="#/savejob" ng-show="currentUser.role=='Admin'">Insert Job</a></li>
+  		<li><a href="#/showjob">View Jobs</a></li>
+  		</ul></li>
+       
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.firstname" ><span class="glyphicon glyphicon-list-alt"></span> Friends<span class="caret"></span></a>
+  		<ul class="dropdown-menu"><li><a href="#/suggestedUsers">Suggested Friends</a></li>
+  		<li><a href="#/pendingrequests">Pending requests</a></li>
+  		</ul></li>
+       
+       
+       
           </ul>
            <ul class="nav navbar-nav navbar-right">
            
@@ -69,9 +93,9 @@ color:  #000000;
            
            
       <li><a href="#/signup" ng-hide="currentUser.firstname"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#/login" ng-hide="currentUser.firstname"><span class="glyphicons glyphicons-user-key"></span> Login</a></li>
+      <li><a href="#/login" ng-hide="currentUser.firstname"><span class="glyphicon glyphicon-lock"></span> Login</a></li>
       <li><a href="" ng-show="currentUser.firstname">{{currentUser.firstname}} {{ currentUser.lastname}}</a></li>
-       <li><a href="#/logout" ng-click="userLogout()"  ng-controller="UserController" ng-show="currentUser.firstname">Log out</a></li>
+       <li><a href="#/logout" ng-click="userLogout()"  ng-controller="UserController" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
       <li><a href="#/home" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-arrow-left"></span> Back </a></li>
       
     </ul>
@@ -96,4 +120,6 @@ src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
 <script type="text/javascript" src="controller/BlogPostController.js"></script>
 <script type="text/javascript" src="controller/BlogPostDetailsController.js"></script>
 <script type="text/javascript" src="service/BlogPostService.js"></script>
+<script type="text/javascript" src="controller/FriendController.js"></script>
+<script type="text/javascript" src="service/FriendService.js"></script>
 </html>

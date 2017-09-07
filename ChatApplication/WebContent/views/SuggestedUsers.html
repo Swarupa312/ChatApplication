@@ -1,0 +1,21 @@
+<table class="table table-responsive">
+<thead>
+<tr><td>
+Firstname
+</td><td></td>
+<td>Lastname</td>
+
+<td>Role</td>
+<td>Request</td></tr>
+</thead>
+<tbody>
+<tr ng-repeat="user in suggesteduserslist">
+<td>{{user.firstname}}</td> <td ng-if="user.online==0">   <span class="   glyphicon glyphicon-cd" style="color:red"></span></td><td ng-if="user.online==1"><span class="glyphicon glyphicon-cd" style="color:green"></span></td>
+<td>{{user.lastname}}</td>
+<!-- <td ng-if="user.onilne"><span class="glyphicon glyphicon-cd" style="color:green"></span></td> -->
+<!-- <td ng-if="!user.onilne"><span class="glyphicon glyphicon-cd" style="color:red"></span></td> -->
+<td>{{user.role}}</td>
+<td><a><input type="submit" value="Send Request" class="btn btn-primary" ng-click="friendRequest(user.username)"></a></td>
+</tr>
+</tbody>
+</table>

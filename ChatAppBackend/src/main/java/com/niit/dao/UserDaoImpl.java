@@ -20,8 +20,8 @@ public class UserDaoImpl implements UserDao {
 		{
 		Session session=sessionFactory.getCurrentSession();
 		session.save(user);
-	}
-
+		}
+			
 		public User validateUsername(String username) {
  		Session session=sessionFactory.getCurrentSession();
 		User user=(User)session.get(User.class, username);

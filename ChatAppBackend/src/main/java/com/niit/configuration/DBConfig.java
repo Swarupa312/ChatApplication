@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.Model.BlogComment;
 import com.niit.Model.BlogPost;
+import com.niit.Model.Friend;
 import com.niit.Model.Job;
 import com.niit.Model.ProfilePicture;
 import com.niit.Model.User;
@@ -33,7 +34,7 @@ public class DBConfig
 		properties.setProperty("hibernate.showsql","true");	
 		localsessionfactory.addProperties(properties);
 		Class classes[]=new Class[]{
-				User.class,Job.class,BlogPost.class,BlogComment.class,ProfilePicture.class
+				User.class,Job.class,BlogPost.class,BlogComment.class,ProfilePicture.class,Friend.class
 		};
 		return localsessionfactory.addAnnotatedClasses(classes).buildSessionFactory();
 	}
