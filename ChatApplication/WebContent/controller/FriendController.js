@@ -16,7 +16,7 @@ app.controller('FriendController',function($scope,$location,FriendService){
 	
 	getsuggestedUsers()
 	getPendingRequests()
-	
+	getlistOfFriends()
 	
 	function getPendingRequests(){
 		FriendService.getPendingRequests().then(function(response){
@@ -27,6 +27,18 @@ app.controller('FriendController',function($scope,$location,FriendService){
 			if(response.status==401)
 				$location.path('/login')
 				console.log(response.status)
+	})
+	}
+	
+	
+	function getlistOfFriends(){
+		FriendService.getlistOfFriends().then(function(response){
+			console.log(response.status)
+			$scope.friendlist=response.data
+		},function(response){	
+			if(response.status==401)
+			$location.path('/login')
+			console.log(response.status)
 	})
 	}
 	
@@ -43,4 +55,29 @@ app.controller('FriendController',function($scope,$location,FriendService){
 				console.log(response.status)
 		})
 	}
+	
+	$scope.updateRequest=function(request,status)
+	{
+		request.status=status
+		FriendService.updateRequest(request).then(function(response){
+			
+		
+		},function(response){
+			if(response.status==401)
+				$location.path('/login')
+				console.log(response.status)
+		})
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 })

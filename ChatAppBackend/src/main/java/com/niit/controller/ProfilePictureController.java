@@ -52,7 +52,7 @@ public class ProfilePictureController
 			return null;
 		else
 		{
-			ProfilePicture profilepicture=profilepictureDao.getProfilePicture(username1);
+			ProfilePicture profilepicture=profilepictureDao.getProfilePicture(username);
 			if(profilepicture==null)
 				return null;
 			else

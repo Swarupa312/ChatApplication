@@ -1,25 +1,25 @@
 
 <style>
-.btn btn-lg{
+.btn-lg{
 background-color:#00CED1;
 }
 </style>
 <div>
 <form><font color="MIDNIGHTBLUE"><center>
-<table>
-<tr><td><font size="6px"><label>
-{{blog.blogtitle}}</label></font></td></tr>
-<tr><td>
+
+<font size="6px"><label>
+{{blog.blogtitle}}</label></font>
+<br>
 <h4><span class="glyphicon glyphicon-time">PostedBy:{{blog.author.firstname}} On:{{blog.blogdate | date:'yyyy-MM-dd'}}</span>
-</td></tr>
-<tr><td><label>{{blog.blogdesc}}</label></td></tr>
-</td><td>Leave a Comment<br><textarea rows="3" cols="50" ng-model="blogComment.commentText"></textarea></td></tr></h4>
-<tr><td>
-<button type="submit" class="btn btn-lg" ng-click="savecomment()">Send<span class="fa fa-paper-plane"></span></button></td></tr>
-</table>
-<!-- <a href="" ng-click="showComments()" ng-controller="BlogPostDetailsController">Show comments</a> -->
+<br><br>
+<label>{{blog.blogdesc}}</label><br><br>
+Leave a Comment:<br><textarea rows="3" cols="50" ng-model="blogComment.commentText"></textarea>
+&nbsp;&nbsp;
+<button type="submit" class="btn btn-lg" ng-click="savecomment()"><span class="fa fa-paper-plane"></span></button>
+<br><br>
+<button type="submit"  class="btn btn-lg" ng-click="showComments(blog.blogid)">Show comments</button><br><br>
 <ul><li ng-repeat="blogcomment in blogcomments">
-{{blogcomment.commentText}}</li></ul>
+<label>{{blogcomment.commentText}}</label></li></ul>
 </center></font>
 </form>
 </div>

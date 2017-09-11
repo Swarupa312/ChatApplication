@@ -33,6 +33,7 @@ public class DBConfig
 		properties.setProperty("hibernate.hbm2ddl.auto","update");
 		properties.setProperty("hibernate.showsql","true");	
 		localsessionfactory.addProperties(properties);
+	
 		Class classes[]=new Class[]{
 				User.class,Job.class,BlogPost.class,BlogComment.class,ProfilePicture.class,Friend.class
 		};

@@ -1,7 +1,7 @@
 /**
  * 
  */
-app.controller('BlogPostDetailsController',function($scope,$location,$routeParams,BlogPostService){
+app.controller('BlogPostDetailsController',function($scope,$location,$routeParams,$rootScope,BlogPostService){
 	
 	var blogid=$routeParams.blogid
 	$scope.blog=BlogPostService.getBlogById(blogid).then(function(response){
@@ -16,6 +16,7 @@ app.controller('BlogPostDetailsController',function($scope,$location,$routeParam
 	$scope.updateBlog=function(){
 		
 		BlogPostService.updateBlog($scope.blog).then(function(response){
+			
 			$location.path('/viewblog')
 		},function(response){
 			console.log(response.data)
@@ -28,10 +29,10 @@ app.controller('BlogPostDetailsController',function($scope,$location,$routeParam
 		})
 	}
 		$scope.savecomment=function(){
-			alert("in controller")
+			
 			$scope.blogComment.blogpost=$scope.blog
 			BlogPostService.addComment($scope.blogComment).then(function(response){
-				alert("Added")
+				alert("Saved successfully")
 			},function(response){
 				console.log(response.status)
 				if(response.status==401)
@@ -41,22 +42,40 @@ app.controller('BlogPostDetailsController',function($scope,$location,$routeParam
 			})
 		}
 		
-		 function showComments(){
-			alert("in controller")
+		 /*function showComments(){
+			
 			BlogPostService.showComments(blogid).then(function(response){
 				console.log(response.data)
 				console.log(response.status)
 				$scope.blogcomments=response.data
 				
-				//alert(blogcomments.commentid)
+				
 			},function(response)
 			{
 				console.log(response.status)
 				if(response.status==401)
 				$location.path('/login')
 				$scope.error=response.data
-				console.log(error.message)
+				
+			})
+		}*/
+		
+		$scope.showComments=function(blogid){
+			
+			BlogPostService.showComments(blogid).then(function(response){
+				console.log(response.data)
+				console.log(response.status)
+				$scope.blogcomments=response.data
+				
+				
+			},function(response)
+			{
+				console.log(response.status)
+				if(response.status==401)
+				$location.path('/login')
+				$scope.error=response.data
+				
 			})
 		}
-		 showComments();
+		 //showComments();
 })

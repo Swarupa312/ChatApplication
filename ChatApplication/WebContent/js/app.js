@@ -82,6 +82,15 @@ app.config(function ($routeProvider){
 		templateUrl:'views/PendingRequests.html'
 	})
 	
+	.when('/userdetail/:fromId',{
+		controller:'FriendDetailController',
+		templateUrl:'views/UserDetail.html'
+	})
+	
+	.when('/friendlist',{
+		controller:'FriendController',
+		templateUrl:'views/FriendList.html'
+	})
 })
 
 
@@ -91,3 +100,6 @@ app.run(function ($rootScope,$cookieStore,UserService,JobService,$location){
 			
 			
 	})
+
+	
+	

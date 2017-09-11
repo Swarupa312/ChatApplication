@@ -33,7 +33,9 @@ Search<input type="text" ng-model="jobSearch" placeholder="search here..!"></cen
 </table>
 <br><br>
 <div ng-show="showjob">
-<table class="table table-responsive">
+<div class="row">
+        <div class="col-sm-6 col-md-4 col-md-4">
+<table>
 
 <tbody>
 <tr><td>
@@ -52,7 +54,7 @@ Location:  </td><td> {{jobid.jlocation}}</td></tr>
 <tr><td>
 Posted On:  </td><td> {{jobid.jpostedon| date:'yyyy/MM/dd'}}</td></tr></tbody>
 
-</table>
+</table></div></div>
 <button class="btn btn-block" onclick="applyforjob()"><h4>Apply</h4	></button>
   </div>
     </font>      

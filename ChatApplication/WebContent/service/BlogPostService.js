@@ -30,7 +30,7 @@ app.factory('BlogPostService',function($http){
 	}
 	
 	blogpostservice.showComments=function(blogid){
-		alert("in service")
+		
 		return $http.get(MAINURL+"/getcomments/"+blogid)
 	}
 	return blogpostservice;

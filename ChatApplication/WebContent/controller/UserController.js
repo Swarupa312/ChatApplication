@@ -1,7 +1,7 @@
 /**
  * 
  */
-app.controller('UserController', function(UserService,$scope,$location,$rootScope,$cookieStore){
+app.controller('UserController', function(UserService,$scope,$location,$cookieStore,$rootScope){
 	if($rootScope.currentUser!=undefined){
 		UserService.getUser().then(function(response){
 		$scope.user=response.data;	
@@ -34,9 +34,12 @@ $scope.userLogin=function(){
 		UserService.loginUser($scope.user).then(function(response){
 			console.log(response.status)
 			$rootScope.currentUser=response.data
-
+			
 			$cookieStore.put("currentUser",response.data)
+			
+			
 			$location.path('/home')
+			
 			},function(response){
 			console.log(response.status)
 			console.log(response.data)

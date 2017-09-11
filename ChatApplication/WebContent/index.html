@@ -59,7 +59,7 @@ color:  #000000;
       <li class="active"><a href="#/home" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-home"></span> Home</a></li>
       <li><a href="#/aboutus" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-globe"></span> About Us</a></li>
        <li><a href="#/contactus" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-earphone"></span> Contact Us</a></li>
-        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"  ng-show="currentUser.firstname"><span class="	glyphicon glyphicon-tasks"></span> Blog<span class="caret"></span></a>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"  ng-show="currentUser.firstname"><span class="glyphicon glyphicon-tasks"></span> Blog<span class="caret"></span></a>
   		<ul class="dropdown-menu"><li><a href="#/writeblog">Write Blog</a></li>
   		<li><a href="#/viewblog">View Blogs</a></li>
   		</ul></li>
@@ -74,10 +74,17 @@ color:  #000000;
   		<ul class="dropdown-menu"><li><a href="#/savejob" ng-show="currentUser.role=='Admin'">Insert Job</a></li>
   		<li><a href="#/showjob">View Jobs</a></li>
   		</ul></li>
+  		
+  		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.firstname" ><span class="	glyphicon glyphicon-comment"></span> Chat<span class="caret"></span></a>
+  		<ul class="dropdown-menu"><li><a href="#/savejob" ng-show="currentUser.role=='Admin'">Insert Job</a></li>
+  		<li><a href="#/showjob">View Jobs</a></li>
+  		</ul></li>
+  		
        
-        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.firstname" ><span class="glyphicon glyphicon-list-alt"></span> Friends<span class="caret"></span></a>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.firstname" ><span class="glyphicon glyphicon-user"></span> Friends<span class="caret"></span></a>
   		<ul class="dropdown-menu"><li><a href="#/suggestedUsers">Suggested Friends</a></li>
   		<li><a href="#/pendingrequests">Pending requests</a></li>
+  		<li><a href="#/friendlist">Friends</a></li>
   		</ul></li>
        
        
@@ -122,4 +129,5 @@ src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
 <script type="text/javascript" src="service/BlogPostService.js"></script>
 <script type="text/javascript" src="controller/FriendController.js"></script>
 <script type="text/javascript" src="service/FriendService.js"></script>
+<script type="text/javascript" src="controller/FriendDetailController.js"></script>
 </html>

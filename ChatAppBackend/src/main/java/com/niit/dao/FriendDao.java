@@ -12,4 +12,8 @@ public interface FriendDao
 	public void friendRequest(String username, String toId);
 	
 	public List<Friend> pendingRequest(String username);
+
+	public void updateRequest(Friend requestupdate);
+	
+	public List<Friend> listOfFriends(String username);
 }
