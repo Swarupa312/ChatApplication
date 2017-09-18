@@ -5,7 +5,8 @@ var app=angular.module("app",['ngRoute','ngCookies']);
 app.config(function ($routeProvider){
 	$routeProvider
 	.when('/home',{
-	templateUrl:'views/Home.html'	
+	templateUrl:'views/Home.html',
+	controller:'BlogPostController'
 	})
 	
 	.when('/contactus',{
@@ -90,6 +91,11 @@ app.config(function ($routeProvider){
 	.when('/friendlist',{
 		controller:'FriendController',
 		templateUrl:'views/FriendList.html'
+	})
+	
+	 .when('/chat',{
+		templateUrl:'views/Chat.html',
+		controller:'Chatcontroller'
 	})
 })
 

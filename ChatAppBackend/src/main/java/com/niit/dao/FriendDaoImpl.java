@@ -59,7 +59,14 @@ public class FriendDaoImpl implements FriendDao
 
 	public void updateRequest(Friend requestupdate) {
 		Session session =sessionFactory.getCurrentSession();
-		session.update(requestupdate);
+		if(requestupdate.getStatus()=='D')
+		{
+			session.delete(requestupdate);
+		}
+		else
+		{
+			session.update(requestupdate);
+		}
 		
 	}
 

@@ -6,7 +6,8 @@ app.controller('JobController', function(JobService,$scope,$location,$rootScope)
 	function showJob(){
 		
 		JobService.showJob().then(function(response){
-		$scope.jobs=response.data;	
+		$scope.jobs=response.data;
+		//$scope.rowLimit=1
 		},function(response){
 		console.log(response.status)
 		$location.path('/home')

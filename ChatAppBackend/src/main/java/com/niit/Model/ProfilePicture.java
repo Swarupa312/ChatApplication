@@ -14,6 +14,7 @@ public class ProfilePicture
 		@Id
 	private String username;
 		@Lob
+		
 	private byte[] pimage;
 		public String getUsername() {
 			return username;

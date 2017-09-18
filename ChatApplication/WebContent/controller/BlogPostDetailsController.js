@@ -1,7 +1,7 @@
 /**
  * 
  */
-app.controller('BlogPostDetailsController',function($scope,$location,$routeParams,$rootScope,BlogPostService){
+app.controller('BlogPostDetailsController',function($scope,$location,$routeParams,BlogPostService){
 	
 	var blogid=$routeParams.blogid
 	$scope.blog=BlogPostService.getBlogById(blogid).then(function(response){
@@ -16,8 +16,10 @@ app.controller('BlogPostDetailsController',function($scope,$location,$routeParam
 	$scope.updateBlog=function(){
 		
 		BlogPostService.updateBlog($scope.blog).then(function(response){
-			
 			$location.path('/viewblog')
+			/*console.log(response.data)
+			$scope.blognotify=response.data*/
+			
 		},function(response){
 			console.log(response.data)
 			alert("unsuccessful")
