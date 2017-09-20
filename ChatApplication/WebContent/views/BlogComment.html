@@ -3,11 +3,27 @@
 .btn-lg{
 background-color:#00CED1;
 }
+
 </style>
 <div>
-<form><font color="MIDNIGHTBLUE"><center>
+<form class="bolg-comment"><font color="MIDNIGHTBLUE" size="6px"><center>
+<img src="http://localhost:8087/ChatAppBackend/getprofilepic/{{blog.author.username}}" width="50px" height="50px" class="img-rounded">  &nbsp;&nbsp;{{blog.author.firstname}} {{ blog.author.lastname}}
+<h5>On:{{blog.blogdate | date:'yyyy-MM-dd'}}</h5>
 
-<font size="6px"><label>
+
+<hr size="100%" color="white">
+
+<label>{{blog.blogdesc}}</label><br><br>
+<h4>Leave a Comment:</h4><font size="4px"><textarea rows="2" cols="30" ng-model="blogComment.commentText"></textarea></font>
+&nbsp;&nbsp;
+<button type="submit" class="btn btn-lg" ng-click="savecomment()"><span class="fa fa-paper-plane"></span></button>
+<br><br>
+<button type="submit"  class="btn btn-lg" ng-click="showComments(blog.blogid)">Show comments</button><br><br>
+<ul><li ng-repeat="blogcomment in blogcomments"><font size="5px">
+<label>{{blogcomment.commentText}}</label>&nbsp;{{blogcomment.commentDate | date:'yyyy-MM-dd'}}
+</font></li></ul>
+
+<!-- <label>
 {{blog.blogtitle}}</label></font>
 <br>
 <h4><span class="glyphicon glyphicon-time">PostedBy:{{blog.author.firstname}} On:{{blog.blogdate | date:'yyyy-MM-dd'}}</span>
@@ -19,7 +35,7 @@ Leave a Comment:<br><textarea rows="3" cols="50" ng-model="blogComment.commentTe
 <br><br>
 <button type="submit"  class="btn btn-lg" ng-click="showComments(blog.blogid)">Show comments</button><br><br>
 <ul><li ng-repeat="blogcomment in blogcomments">
-<label>{{blogcomment.commentText}}</label></li></ul>
-</center></font>
+<label>{{blogcomment.commentText}}</label></li></ul> -->
+</font></center>
 </form>
 </div>

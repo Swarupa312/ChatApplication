@@ -97,6 +97,16 @@ app.config(function ($routeProvider){
 		templateUrl:'views/Chat.html',
 		controller:'Chatcontroller'
 	})
+	
+	.when('/forums',{
+	controller:'ForumController',
+	templateUrl:'views/Forum.html'
+	})
+	
+	.when('/approveforum',{
+		controller:'ForumController',
+		templateUrl:'views/ForumApprove.html'
+		})
 })
 
 

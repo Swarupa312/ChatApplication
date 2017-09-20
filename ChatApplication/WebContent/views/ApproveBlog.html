@@ -20,6 +20,11 @@
 	
    
 }
+
+.btn-lg{
+background-color:#00CED1;
+font-size: 25px;
+}
 </style>
 
 <div class="container">
@@ -43,7 +48,7 @@
 <input type="radio" ng-model="blog.approved" value="True"><label>Approve</label>&nbsp;&nbsp;	
 <input type="radio" ng-model="blog.approved" value="False"><label>Reject</label>
 <br><br>
-<input type="submit" value="submit" ng-click="updateBlog()">
+<input type="submit" value="submit" ng-click="updateBlog()" class="btn btn-lg">
 
 </font></center>
 </form>

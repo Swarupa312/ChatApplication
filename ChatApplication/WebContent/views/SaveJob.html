@@ -42,33 +42,33 @@ font-size: 25px;
 <div class="row">
 <div class="col-sm-6 col-md-4 col-md-offset-4">
 <div class="account">
-<form class="form-job"><font face="Verdana" size="4px" color="MIDNIGHTBLUE">
+<form class="form-job" name="jobform"><font face="Verdana" size="4px" color="MIDNIGHTBLUE">
 
 <h3><center>Jobs</center> </h3>
 <font color="red">{{error.message}}</font>
 <label><b>Title</b></label>
-<input type="text" class="form-control" ng-model="job.jtitle"><br>
+<input type="text" class="form-control" ng-model="job.jtitle"required><br>
 
 <label><b>Description</b></label>
-<input type="text" class="form-control" ng-model="job.jdesc"><br>
+<input type="text" class="form-control" ng-model="job.jdesc" required><br>
 
 <label><b>Skills</b></label>
 <input type="text" class="form-control" ng-model="job.jskills"><br>
 
 <label><b>Experience</b></label>
-<input type="text" class="form-control" ng-model="job.jyrsofexp"><br>
-<label><b>Salary</b></label><input type="text" class="form-control" ng-model="job.jsalary"><br>
-<label><b>Company</b></label><input type="text" class="form-control" ng-model="job.jcompany"><br>
+<input type="text" class="form-control" ng-model="job.jyrsofexp" required><br>
+<label><b>Salary</b></label><input type="text" class="form-control" ng-model="job.jsalary" required><br>
+<label><b>Company</b></label><input type="text" class="form-control" ng-model="job.jcompany" required><br>
 
 <label><b>Location</b></label>
-<input type="text" class="form-control" ng-model="job.jlocation"><br>
+<input type="text" class="form-control" ng-model="job.jlocation" required><br>
 
 <!-- <label><b><font face="Garamond" size="4px">Date</font></b></label> -->
 <!-- <input type="hidden" class="form-control" ng-model="job.jpostedon" value="15/08/2017"> -->
                 
                <br><br>
                 
-                <button class="btn btn-block" type="submit" ng-click="saveJob()">
+                <button class="btn btn-block" type="submit" ng-click="saveJob()" ng-disabled="jobform.$invalid">
                    Save</button>
 </form>
 </div>

@@ -74,7 +74,7 @@ public class Job {
 	private int jid;
 	@NotEmpty
 	private String jtitle;
-	@NotEmpty
+	@NotEmpty(message="not empty")
 	private String jdesc;
 	@NotEmpty
 	private String jskills;

@@ -1,11 +1,24 @@
+
+<style>
+
+.btn-lg{
+background-color:#00CED1;
+font-size: 25px;
+}
+</style>
+
 <div>
-<table class="table table-responsive">
-<tbody>
-<tr><td><img src="http://localhost:8087/ChatAppBackend/getprofilepic/{{userfriend.username}}" width="300px" height="300px" class="img-rounded"></td></tr>
-<tr><td>First Name</td><td>{{userfriend.firstname}}</td></tr>
-<tr><td>Last Name</td><td> {{userfriend.lastname}}</td></tr>
+<div class="row"><font color="MIDNIGHTBLUE" size="4px">
+  <div class="col-sm-6 col-md-4 col-md-4">
+<table>
+
+<tr><td><img src="http://localhost:8087/ChatAppBackend/getprofilepic/{{userfriend.username}}" width="200px" height="200px" class="img-rounded"></td></tr>
+<br><br><tr><td>Name</td><td>{{userfriend.firstname}} {{userfriend.lastname}}</td>
+</tr>
+<tr><td>Email<td> {{userfriend.email}}</td></tr>
 <tr><td>Role</td><td>{{userfriend.role}}</td></tr>
 <tr><td>UserName</td><td>{{userfriend.username}}</td></tr>
-</tbody>
-</table>
-</div>
+
+</table><br><br>
+<a href="#/pendingrequests"><button type="submit" class="btn btn-lg">Back</button></a>
+</div></font></div></div>

@@ -44,10 +44,11 @@ background-color:#00CED1;
         <div class="col-sm-6 col-md-4 col-md-offset-4">
            
             <div class="account">
-            <form class="form-signup"><font color="MIDNIGHTBLUE"><br>
+            <form class="form-signup" name="signupform"><font color="MIDNIGHTBLUE"><br>
             <h2>Create New Account</h2>
         
-            User Name <font color="red"></font><input type="text" class="form-control" ng-model="user.username" required autofocus>
+            User Name <font color="red"></font><input type="text" class="form-control" ng-model="user.username" required >
+            <!-- <p ng-show="signupform.username.$error.minlength" style="color:red">User name should be 5-10 characters</p> -->
               First name -<input type="text" class="form-control" ng-model="user.firstname" required>
                Last name -<input type="text" class="form-control" ng-model="user.lastname" required>
               Email -<input type="text" class="form-control" ng-model="user.email" required>
@@ -60,7 +61,7 @@ background-color:#00CED1;
                 <input type="hidden" value="0" ng-model="user.online">
                 <br><br>
                 
-              <button class="btn btn-block" type="submit" ng-click="registerUser()">
+              <button class="btn btn-block" type="submit" ng-click="registerUser()" ng-disabled="signupform.$invalid">
                    <h4>Create Account</h4></button></font>
 </form>
 </div>

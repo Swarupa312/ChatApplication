@@ -22,6 +22,9 @@
 .btn-block{
 background-color:#00CED1;
 }
+a{
+color:midnightblue;
+}
 </style>
 
 <div class="container">
@@ -30,27 +33,23 @@ background-color:#00CED1;
 <form><font color="MIDNIGHTBLUE" size="5px">
 <div ng-show="currentUser.role=='Admin'">
 <h3>Blogs waiting for Approval</h3>
-
+<br>
 <table class="table table-responsive">
-<thead>
-<tr><th>Title</th><th>Author</th><th>Posted On</th></tr>
-</thead>
-<tbody>
-<tr ng-repeat="blog in blogwaiting">
-<td><a href="#/getblogbyidwaiting/{{blog.blogid}}">{{blog.blogtitle}}</a></td><td>{{blog.author.firstname}}</td><td>{{blog.blogdate | date:'yyyy-MM-dd'}}</td>
-</tr>
-</tbody>
+<thead><tr><th>Profile</th><th>Author</th><th>Posted On</th><th>Title</th></tr></thead>
+<tbody><tr ng-repeat="blog in blogwaiting">
+<td><img src="http://localhost:8087/ChatAppBackend/getprofilepic/{{blog.author.username}}" width="50px" height="50px" class="img-rounded"></td><td>{{blog.author.firstname}}</td><td>{{blog.blogdate | date:'yyyy-MM-dd'}}</td>
+<td><a href="#/getblogbyidwaiting/{{blog.blogid}}">{{blog.blogtitle}}</a></td></tr></tbody>
 </table>
 </div>
 <div><br><br>
-<h3>Blogs Approved</h3>
+<h3>Blogs Approved</h3><br>
 <table class="table table-responsive">
 <thead>
-<tr><th>Title</th><th>Author</th><th>Posted On</th></tr>
+<tr><th>Profile</th><th>Author</th><th>Posted on</th><th>Title</th></tr>
 </thead>
 <tbody>
-<tr ng-repeat="blog in blogapproved">
-<td><a href="#/getblogbyidapproved/{{blog.blogid}}">{{blog.blogtitle}}</a></td><td>{{blog.author.firstname}}</td><td>{{blog.blogdate | date:'yyyy-MM-dd'}}</td>
+<tr ng-repeat="blog in blogapproved"><td><img src="http://localhost:8087/ChatAppBackend/getprofilepic/{{blog.author.username}}" width="50px" height="50px" class="img-rounded"></td>
+<td>{{blog.author.firstname}}</a></td><td>{{blog.blogdate | date:'yyyy-MM-dd'}}</td><td><a href="#/getblogbyidapproved/{{blog.blogid}}">{{blog.blogtitle}}</td>
 </tr>
 </tbody>
 </table>

@@ -32,19 +32,19 @@ font-size: 25px;
 </style>
 
 
-            <form><br><br><font color="MIDNIGHTBLUE" size="5px" face="verdana"><center>
+            <form name="blogform"><br><br><font color="MIDNIGHTBLUE" size="5px" face="verdana"><center>
             
             <h2>Write your blog here......!!!!</h2><br>
           
          	<div class="form group">
          	<label>Blog Title</label><br>
-            <input type="text" ng-model="blog.blogtitle" class="form-control" placeholder="Enter the title"></div>
+            <input type="text" ng-model="blog.blogtitle" class="form-control" placeholder="Enter the title" required></div>
        <br>
             <div class="form group">
             <label>Blog</label><br>
-            <textarea rows="10" ng-model="blog.blogdesc" class="form-control" placeholder="Write your block here...."></textarea>
+            <textarea rows="10" ng-model="blog.blogdesc" class="form-control" placeholder="Write your block here...." required></textarea>
                 </div><br><br>
-                <button type="submit" class="btn btn-block" ng-click="saveBlog()">
+                <button type="submit" class="btn btn-block" ng-click="saveBlog()" ng-disabled="blogform.$invalid">
                     Save</button></center></font>
 </form>
 </div>

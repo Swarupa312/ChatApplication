@@ -3,19 +3,21 @@
 <style>
 .User-Edit
 {
-    max-width:500px;
+    max-width:400px;
      margin: 0 auto; 
      
 }
 .User-Edit .form-control
 {
-    position: relative;
+    
     font-size: 20px;
+    font-color:MIDNIGHTBLUE;
     height: auto;
+    width:80%;
     padding: 10px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box;
+   
 }
 
 
@@ -23,7 +25,7 @@
 {
     padding: 10px 0px 20px 0px;
     background-color: #f7f7f7;
-  	width:600px;
+  	width:500px;
   	font-size:20px;
   	border: 2px solid white;
     border-radius: 8px;
@@ -42,16 +44,19 @@ font-size: 25px;
 <div class="row">
  <div class="col-sm-6 col-md-4 col-md-offset-4">
 <div class="account">
-<form class="User-Edit"><font color="MIDNIGHTBLUE" size="4px"family="verdana">
+<form class="User-Edit" name="edituser"><font color="MIDNIGHTBLUE" size="4px"family="verdana">
 
-<h2>Edit Profile </h2>
+
 <font color="red">{{error.message}}</font>
+
+<a href="#profilepic"><img src="http://localhost:8087/ChatAppBackend/getprofilepic/{{user.username}}" width="200px" height="200px" class="img-rounded"></a><br><br>
 <label><b>User name</b></label>
-<input type="text" class="form-control" ng-model="user.username"><br>
+<input type="text" class="form-control" ng-model="user.username" disabled><br>
+
 
 <label><b>First Name</b></label>
-<input type="text" class="form-control" ng-model="user.firstname"><br>
-
+<input type="text" class="form-control" ng-model="user.firstname">
+<br>
 <label><b>Last Name</b></label>
 <input type="text" class="form-control" ng-model="user.lastname"><br>
 

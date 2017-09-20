@@ -59,12 +59,18 @@ color:  #000000;
       <li class="active"><a href="#/home" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-home"></span> Home</a></li>
       <li><a href="#/aboutus" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-globe"></span> About Us</a></li>
        <li><a href="#/contactus" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-earphone"></span> Contact Us</a></li>
+         
+         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.firstname" ><span class="glyphicon glyphicon-list-alt"></span> Forum<span class="caret"></span></a>
+  		<ul class="dropdown-menu"><li><a href="#/approveforum" ng-show="currentUser.role=='Admin'">Approve Forum</a></li>
+  		<li><a href="#/forums">View Forums</a></li>
+  		</ul></li>
+  		
         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"  ng-show="currentUser.firstname"><span class="glyphicon glyphicon-tasks"></span> Blog<span class="caret"></span></a>
   		<ul class="dropdown-menu"><li><a href="#/writeblog">Write Blog</a></li>
   		<li><a href="#/viewblog">View Blogs</a></li>
   		</ul></li>
    
-      <li><a href="#/edituser" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-edit"></span> Edit Profile</a>
+     <!--  <li><a href="#/edituser" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-edit"></span>View My Profile</a> -->
      <!--  <li><a href="#/savejob" ng-show="currentUser.role=='Admin'">Insert job</a>
       <li><a href="#/viewblog" ng-show="currentUser.firstname">Show job</a> -->
      
@@ -97,7 +103,7 @@ color:  #000000;
            
       <li><a href="#/signup" ng-hide="currentUser.firstname"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="#/login" ng-hide="currentUser.firstname"><span class="glyphicon glyphicon-lock"></span> Login</a></li>
-      <li><a href="" ng-show="currentUser.firstname">{{currentUser.firstname}} {{ currentUser.lastname}}</a></li>
+      <li><a href="#/edituser" ng-show="currentUser.firstname">{{currentUser.firstname}} {{ currentUser.lastname}}</a></li>
        <li><a href="#/logout" ng-click="userLogout()"  ng-controller="UserController" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
       <li><a href="#/home" ng-show="currentUser.firstname"><span class="glyphicon glyphicon-arrow-left"></span> Back </a></li>
       
@@ -112,6 +118,8 @@ color:  #000000;
 </body>
 <script type="text/javascript"
 src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-messages.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>  --> 
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
@@ -131,5 +139,7 @@ src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
 <script type="text/javascript" src="controller/FriendDetailController.js"></script>
 <script type="text/javascript" src="controller/Chatcontroller.js"></script>
 <script type="text/javascript" src="service/Chatservice.js"></script>
+<script type="text/javascript" src="controller/ForumController.js"></script>
+<script type="text/javascript" src="service/ForumService.js"></script>
 
 </html>

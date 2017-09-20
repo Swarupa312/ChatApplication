@@ -45,7 +45,7 @@ $scope.userLogin=function(){
 			console.log(response.data)
 			error=response.data
 			alert(error.message)
-			$location.path('/signup')
+			$location.path('/login')
 			
 		})
 	}

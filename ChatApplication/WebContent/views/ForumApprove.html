@@ -1,0 +1,77 @@
+
+
+<style>
+
+.form-approveforum
+{
+    max-width: 600px;
+   padding: 15px; 
+     margin: 0 auto; 
+}
+
+.account-wall
+{
+    margin-top: 20px;
+    padding: 40px 0px 20px 0px;
+    background-color: #f7f7f7;
+    background-image:url("images/bg7(1).jpg");
+    border: 2px solid white;
+    border-radius: 8px;
+    width:700px;
+	
+   
+}
+.btn-default{
+background-color:#00CED1;
+font-size: 17px;
+}
+</style>
+
+
+
+
+
+<div>
+<div class="container">
+
+<div class="row">
+ <div class="col-sm-6 col-md-4 col-md-offset-4">
+<div class="account-wall">
+<div>
+<form class="approveforum"><center>
+
+<font color="MIDNIGHTBLUE" size="4px">
+
+<h4><strong>Forum Approval</strong></h4><br>
+<table class="table table-responsive">
+<thead>
+<tr>
+<th>Text</th><th>Forum By</th><th colspan="2">Approval</th>
+</thead>
+<tbody>
+<tr ng-repeat="forumlist in showWaitingforum">
+<td>{{forumlist.forumText}}</td><td>{{forumlist.forumBy.username}}</td>
+<td><td><a href="" class="btn btn-default" ng-click="updateForum(forumlist,'True')">Approve</a></td>
+<td><a href="" class="btn btn-default" ng-click="updateForum(forumlist,'False')">Reject</a></td>
+
+
+<!-- <td><input type="radio" ng-model="forumlist.forumstatus" value="True" ng-click>Approve	
+</td><td><input type="radio" ng-model="forumlist.forumstatus" value="False">Reject</td>
+<td>
+<input type="submit" value="submit" ng-click="updateForum(forumlist)" class="button"> -->
+
+</td>
+</tr>
+
+</tbody>
+
+</table>
+</font>
+</center>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

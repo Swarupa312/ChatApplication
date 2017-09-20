@@ -1,0 +1,24 @@
+
+
+<style>
+
+.btn-lg{
+background-color:#00CED1;
+}
+</style>
+
+<div>
+<form name="forumform" class="form-forum" novalidate>
+<font color="MIDNIGHTBLUE" size="4px">
+<div ng-repeat="forumlist in showapprovedforum">
+
+
+<label><font size="6px">{{forumlist.forumText}}</font></label> By:<label> {{ forumlist.forumBy.username}}</label> <span class="glyphicon glyphicon-time"></span><label> {{ forumlist.forumdate | date:'yyyy-MM-dd'}}</label>
+
+
+</div>
+Your views<br><textarea rows="3" cols="50" ng-model="forum.forumText" required></textarea> 
+<button type="submit" ng-click="saveForum()" ng-disabled="forumform.$invalid" class="btn btn-lg"><span class="fa fa-paper-plane"></button>
+
+</font></form>
+</div>

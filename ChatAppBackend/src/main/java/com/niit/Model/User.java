@@ -13,7 +13,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class User {
 	@Id
-	@Length(min=5,max=10)
+	
 	private String username;
 	@NotEmpty
 	private String firstname;

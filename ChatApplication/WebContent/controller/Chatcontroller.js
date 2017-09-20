@@ -17,9 +17,10 @@ app.controller('Chatcontroller', ['$rootScope' ,'$scope', 'socket', function($ro
            
             if(user != $scope.userName && $.inArray(user, $scope.users) == -1) {
                 $scope.addUser(user);
+                console.log(user)
                 $scope.latestUser = user;
                 $scope.$apply();
-                $('#joinedChat').fadeIn(100).delay(2000).fadeOut(200);
+                $('#joinedChat').fadeIn(100).delay(10000).fadeOut(200);
             }
             
         });
