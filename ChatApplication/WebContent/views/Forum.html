@@ -9,16 +9,48 @@ background-color:#00CED1;
 
 <div>
 <form name="forumform" class="form-forum" novalidate>
+
 <font color="MIDNIGHTBLUE" size="4px">
+<p align="right">
+<button class="btn btn-lg" ng-click="askquestionenable()">Ask a Question</button>
+</p>
+<br><br>
+<!-- <div  ng-show="currentUser.role=='Admin'">
+
+
+<table class="table table-responsive">
+<thead>
+<tr>
+<th>Text</th><th>Forum By</th><th colspan="2">Approval</th>
+</thead>
+<tbody>
+<tr ng-repeat="forumlist in showWaitingforum">
+<td>{{forumlist.forumText}}</td><td>{{forumlist.forumBy.username}}</td>
+<td><td><a href="" class="btn btn-default" ng-click="updateForum(forumlist,'True')">Approve</a></td>
+<td><a href="" class="btn btn-default" ng-click="updateForum(forumlist,'False')">Reject</a></td>
+
+</div> -->
+
+
+
+
+<center>
 <div ng-repeat="forumlist in showapprovedforum">
 
 
-<label><font size="6px">{{forumlist.forumText}}</font></label> By:<label> {{ forumlist.forumBy.username}}</label> <span class="glyphicon glyphicon-time"></span><label> {{ forumlist.forumdate | date:'yyyy-MM-dd'}}</label>
-
+<label><font size="6px"><a href="#/getforumbyid/{{forumlist.forumid}}">{{forumlist.forumText}}</a></font></label>
+<p align="right" size="3px" >By:{{ forumlist.forumBy.username}}<span class="glyphicon glyphicon-time"></span> {{ forumlist.forumdate | date:'yyyy-MM-dd'}}</p>
+<hr size="100%" color="white">
 
 </div>
-Your views<br><textarea rows="3" cols="50" ng-model="forum.forumText" required></textarea> 
-<button type="submit" ng-click="saveForum()" ng-disabled="forumform.$invalid" class="btn btn-lg"><span class="fa fa-paper-plane"></button>
 
-</font></form>
+<div ng-show="question">
+
+<b>Ask Your Question here..!</b><br><textarea rows="3" cols="80" ng-model="forum.forumText" required></textarea> 
+<button type="submit" ng-click="saveForum()" ng-disabled="forumform.$invalid" class="btn btn-lg"><span class="fa fa-paper-plane"></button>
+</div>
+
+</center>
+</font>
+</form>
 </div>

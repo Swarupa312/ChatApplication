@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.niit.Model.BlogComment;
 import com.niit.Model.BlogPost;
 import com.niit.Model.Error;
 import com.niit.Model.Forum;
+import com.niit.Model.ForumComment;
 import com.niit.Model.Job;
 import com.niit.Model.User;
 import com.niit.dao.ForumDao;
@@ -86,4 +88,60 @@ public ResponseEntity<?> updateforum(@RequestBody Forum forum,HttpSession sessio
 	}
 	
 }
+
+@RequestMapping(value="/getforumbyid/{forumid}", method=RequestMethod.GET)
+public ResponseEntity<?> getForumById(@PathVariable("forumid") int forumid,HttpSession session)
+{
+	System.out.println("in controller");
+	if(session.getAttribute("username")==null)
+	{
+		Error error=new Error(5,"Unauthorized");
+		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+	}
+	Forum forum=forumDao.getforumById(forumid);
+	System.out.println(forum.getForumid());
+	//System.out.println(job.getJtitle());
+	return new ResponseEntity<Forum>(forum,HttpStatus.OK);
+	
+}
+
+@RequestMapping(value="/forumcomments/{forumid}", method=RequestMethod.GET)
+public ResponseEntity<?> forumComments(@PathVariable("forumid") int forumid,HttpSession session)
+{
+	System.out.println("in controller");
+	if(session.getAttribute("username")==null)
+	{
+		Error error=new Error(5,"Unauthorized");
+		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+	}
+	List<ForumComment> commentlist=forumDao.getCommentsByForumId(forumid);
+	
+	//System.out.println(job.getJtitle());
+	return new ResponseEntity<List<ForumComment>>(commentlist,HttpStatus.OK);
+	
+}
+
+@RequestMapping(value="/saveforumcomment",method=RequestMethod.POST)
+public ResponseEntity<?> blogComment(@RequestBody ForumComment forumcomment,HttpSession session)
+{
+	
+	if(session.getAttribute("username")==null){
+		Error error=new Error(5,"Unauhorized");
+		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+	}
+	String username=(String) session.getAttribute("username");
+	User user=userDao.validateUsername(username);
+	forumcomment.setForumcommentDate(new Date());
+	forumcomment.setForumcommentedBy(user);
+	
+	try{
+		forumDao.saveComment(forumcomment);
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	}catch(Exception e){
+		Error error=new Error(1,"Unable to save the blog");
+		return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+}
+
 }

@@ -107,6 +107,11 @@ app.config(function ($routeProvider){
 		controller:'ForumController',
 		templateUrl:'views/ForumApprove.html'
 		})
+		
+	.when('/getforumbyid/:forumid',{
+		controller:'ForumDetailsController',
+		templateUrl:'views/ForumDetails.html'
+	})
 })
 
 

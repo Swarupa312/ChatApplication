@@ -22,5 +22,21 @@ app.factory('ForumService',function($http){
 	
 		return $http.put(MAINURL+"/updateforum",forumlist)
 	}
+	
+	forumservice.getForumById=function(forumid){
+		
+		return $http.get(MAINURL+"/getforumbyid/"+forumid)
+	}
+	
+	forumservice.getForumsComments=function(forumid){
+		
+		return $http.get(MAINURL+"/forumcomments/"+forumid)
+	}
+	
+	forumservice.saveForumcomment=function(ForumComment)
+	{
+		
+		return $http.post(MAINURL+"/saveforumcomment/",ForumComment)
+	}
 return forumservice;
 })

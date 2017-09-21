@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.niit.Model.BlogComment;
 import com.niit.Model.BlogPost;
 import com.niit.Model.Forum;
+import com.niit.Model.ForumComment;
 import com.niit.Model.Friend;
 import com.niit.Model.Job;
 import com.niit.Model.ProfilePicture;
@@ -36,7 +37,7 @@ public class DBConfig
 		localsessionfactory.addProperties(properties);
 	
 		Class classes[]=new Class[]{
-				User.class,Job.class,BlogPost.class,BlogComment.class,ProfilePicture.class,Friend.class,Forum.class
+				User.class,Job.class,BlogPost.class,BlogComment.class,ProfilePicture.class,Friend.class,Forum.class,ForumComment.class
 		};
 		return localsessionfactory.addAnnotatedClasses(classes).buildSessionFactory();
 	}

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.Model.Forum;
+import com.niit.Model.ForumComment;
 @Repository
 @Transactional
 public class ForumDaoImpl implements ForumDao 
@@ -37,6 +38,30 @@ Session session=sessionFactory.getCurrentSession();
 		
 		session.update(forum);
 		
+	}
+
+
+	
+	public Forum getforumById(int forumid) {
+		Session session=sessionFactory.getCurrentSession();	
+		Forum forum=(Forum) session.get(Forum.class, forumid);
+		return forum;
+		
+	}
+
+
+	
+	public List getCommentsByForumId(int forumid) {
+		Session session=sessionFactory.getCurrentSession();	
+		Query query=session.createQuery("from ForumComment where forum.forumid="+forumid);
+		return query.list();
+	}
+
+
+	
+	public void saveComment(ForumComment forumcomment) {
+		Session session=sessionFactory.getCurrentSession();
+		session.save(forumcomment);
 	}
 
 }

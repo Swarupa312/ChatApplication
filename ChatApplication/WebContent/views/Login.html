@@ -64,7 +64,7 @@ background-color:#00CED1;
                     alt="">
                 <form class="form-Login" name="loginform" novalidate>
                 <input type="text" class="form-control" placeholder="User name" ng-model="user.username" required>
-                <p ng-show="loginform.username.$invalid && !loginform.username.$dirty" style="color:red">Not blank</p>
+                <p ng-show="loginform.username.$invalid && loginform.username.$dirty" style="color:red">Not blank</p>
                 <input type="password" class="form-control" placeholder="Password" ng-model="user.password" required><br>
                 <p ng-show="loginform.password.$invalid && loginform.password.$dirty" style="color:red">Password can not be blank</p>
                 <button class="btn btn-block" type="submit" ng-click="userLogin()">
