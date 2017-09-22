@@ -1,4 +1,4 @@
-<div><font color="MIDNIGHTBLUE">
+<div><font color="MIDNIGHTBLUE"><form name="forumcomment">
 <center>
 <h2><strong>{{forum.forumText}}</strong></h2></center>
 <p align="right"><font size="3px"><span class="glyphicon glyphicon-time"></span>{{forum.forumdate | date:'yyyy-MM-dd'}}</font></p>
@@ -13,7 +13,7 @@
 <li><font size="2px">Answered By:<br>{{comment.forumcommentedBy.username}}<br><span class="glyphicon glyphicon-time"></span>{{comment.forumcommentDate | date:'yyyy-MM-dd'}}</font><br>{{comment.forumComment}}</li></ul>
 
 </font><br><br>
-<h4>Leave a Comment:</h4><font size="4px" ><textarea rows="2" cols="30" ng-model="ForumComment.forumComment"></textarea></font>
-<button type="submit" class="btn btn-lg" ng-click="saveForumcomment()"><span class="fa fa-paper-plane"></span></button>
-</div></font>
+<h4>Leave a Comment:</h4><font size="4px" ><textarea rows="2" cols="30" ng-model="ForumComment.forumComment" required></textarea></font>
+<button type="submit" class="btn btn-lg" ng-click="saveForumcomment()" ng-disabled="forumcomment.$invalid"><span class="fa fa-paper-plane"></span></button>
+</div></form></font>
 </div>

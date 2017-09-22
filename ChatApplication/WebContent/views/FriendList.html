@@ -5,7 +5,7 @@
 </thead>
 <tbody>
 <tr ng-repeat="user in friendlist">
-<td ng-hide="user.fromId==currentUser.username">{{user.fromId}}</td><td  ng-hide="user.toId==currentUser.username">{{user.toId}}</td>
+<td ng-hide="user.fromId==currentUser.username"><a href="#/userdetail/{{user.fromId}}">{{user.fromId}}</a></td><td  ng-hide="user.toId==currentUser.username"><a href="#/userdetail/{{user.toId}}"">{{user.toId}}</a></td>
 <td><img src="http://localhost:8087/ChatAppBackend/getprofilepic/{{user.fromId}}" width="50px" height="50px" class="img-rounded" ng-hide="user.fromId==currentUser.username"></td>
 
 <td><img src="http://localhost:8087/ChatAppBackend/getprofilepic/{{user.toId}}" width="50px" height="50px" class="img-rounded" ng-hide="user.toId==currentUser.username"></td>

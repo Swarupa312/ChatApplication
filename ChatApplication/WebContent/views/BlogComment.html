@@ -6,7 +6,7 @@ background-color:#00CED1;
 
 </style>
 <div>
-<form class="bolg-comment"><font color="MIDNIGHTBLUE" size="6px"><center>
+<form class="bolg-comment" name="BlogComment"><font color="MIDNIGHTBLUE" size="6px"><center>
 <img src="http://localhost:8087/ChatAppBackend/getprofilepic/{{blog.author.username}}" width="50px" height="50px" class="img-rounded">  &nbsp;&nbsp;{{blog.author.firstname}} {{ blog.author.lastname}}
 <h5>On:{{blog.blogdate | date:'yyyy-MM-dd'}}</h5>
 
@@ -14,9 +14,9 @@ background-color:#00CED1;
 <hr size="100%" color="white">
 
 <label>{{blog.blogdesc}}</label><br><br>
-<h4>Leave a Comment:</h4><font size="4px"><textarea rows="2" cols="30" ng-model="blogComment.commentText"></textarea></font>
+<h4>Leave a Comment:</h4><font size="4px"><textarea rows="2" cols="30" ng-model="blogComment.commentText" required></textarea></font>
 &nbsp;&nbsp;
-<button type="submit" class="btn btn-lg" ng-click="savecomment()"><span class="fa fa-paper-plane"></span></button>
+<button type="submit" class="btn btn-lg" ng-click="savecomment()" ng-disabled="BlogComment.$invalid"><span class="fa fa-paper-plane"></span></button>
 <br><br>
 <button type="submit"  class="btn btn-lg" ng-click="showComments(blog.blogid)">Show comments</button><br><br>
 <ul><li ng-repeat="blogcomment in blogcomments"><font size="5px">

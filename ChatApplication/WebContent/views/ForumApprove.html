@@ -17,7 +17,7 @@
     background-image:url("images/bg7(1).jpg");
     border: 2px solid white;
     border-radius: 8px;
-    width:700px;
+    width:600px;
 	
    
 }
@@ -51,14 +51,14 @@ font-size: 17px;
 <tbody>
 <tr ng-repeat="forumlist in showWaitingforum">
 <td>{{forumlist.forumText}}</td><td>{{forumlist.forumBy.username}}</td>
-<td><td><a href="" class="btn btn-default" ng-click="updateForum(forumlist,'True')">Approve</a></td>
+<td><td><a href="" class="btn btn-default" ng-click="updateForum(forumlist,'True')" >Approve</a></td>
 <td><a href="" class="btn btn-default" ng-click="updateForum(forumlist,'False')">Reject</a></td>
 
 
 <td><input type="radio" ng-model="forumlist.forumstatus" value="True" ng-click>Approve	
 </td><td><input type="radio" ng-model="forumlist.forumstatus" value="False">Reject</td>
 <td>
-<input type="submit" value="submit" ng-click="updateForum(forumlist)" class="button">
+<!-- <input type="submit" value="submit" ng-click="updateForum(forumlist)" class="button" ng-disabled="ApprovedForum.$invalid"> -->
 
 </td>
 </tr>
