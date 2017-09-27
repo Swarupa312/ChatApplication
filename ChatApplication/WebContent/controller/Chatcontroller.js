@@ -10,12 +10,14 @@ app.controller('Chatcontroller', ['$rootScope' ,'$scope', 'socket', function($ro
     $scope.$on('sockConnected', function(event, frame) {
     	alert('sockconnected')
         $scope.userName=$rootScope.currentUser.username;
-        $scope.stompClient.subscribe("/topic/join", function(message) {
+        $scope.stompClient.subscribe("/topic/join", function(message) //response from server of subscription
+        		{
         	
-            user = JSON.parse(message.body);
+            user = JSON.parse(message.body);	//Subscribed User name
             console.log(user)
            
-            if(user != $scope.userName && $.inArray(user, $scope.users) == -1) {
+            if(user != $scope.userName && $.inArray(user, $scope.users) == -1)  //If the user is in array or not
+            {
                 $scope.addUser(user);
                 console.log(user)
                 $scope.latestUser = user;
@@ -25,10 +27,10 @@ app.controller('Chatcontroller', ['$rootScope' ,'$scope', 'socket', function($ro
             
         });
         
-  
+        //To Subscribe with server
         $scope.stompClient.subscribe('/app/join/'+$scope.userName, function(message) {
         
-            $scope.users = JSON.parse(message.body);
+            $scope.users = JSON.parse(message.body);	//To get the online Users list
         	
             $scope.$apply();
         });
@@ -50,7 +52,7 @@ app.controller('Chatcontroller', ['$rootScope' ,'$scope', 'socket', function($ro
  
     $scope.addUser = function(user) {
         $scope.users.push(user);
-        $scope.$apply();
+        $scope.$apply(); 	//To apply the changes
     };
  
     
@@ -64,12 +66,13 @@ app.controller('Chatcontroller', ['$rootScope' ,'$scope', 'socket', function($ro
   
         $scope.user=$rootScope.currentUser.username;
        
+        //The chat with particular user
         $scope.stompClient.subscribe( "/queue/chats/"+$scope.userName, function(message) {
         	
             $scope.processIncomingMessage(message, false);
         });
         
-        
+        //the chat with all users
         $scope.stompClient.subscribe("/queue/chats", function(message) {
         	
             $scope.processIncomingMessage(message, true);
@@ -90,7 +93,7 @@ app.controller('Chatcontroller', ['$rootScope' ,'$scope', 'socket', function($ro
         message.direction = 'incoming';
         if(message.from != $scope.userName) {
         	$scope.addChat(message);
-            $scope.$apply(); // since inside subscribe closure
+            $scope.$apply(); // 
         }
     };
 

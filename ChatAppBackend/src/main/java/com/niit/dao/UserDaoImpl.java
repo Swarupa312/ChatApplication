@@ -39,8 +39,8 @@ public class UserDaoImpl implements UserDao {
 		
 		public User loginUser(User user) {
 			Session session=sessionFactory.getCurrentSession();
-			Query query=session.createQuery("from User where username=? and password=?");
-			query.setString(0,user.getUsername());
+			Query query=session.createQuery("from User where email=? and password=?");
+			query.setString(0,user.getEmail());
 			query.setString(1,user.getPassword());
 			return (User) query.uniqueResult();
 		}

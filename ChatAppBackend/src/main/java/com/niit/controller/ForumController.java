@@ -34,7 +34,7 @@ ForumDao forumDao;
 UserDao userDao;
 
 
-@RequestMapping(value="/saveforum",method=RequestMethod.POST)
+@RequestMapping(value="/saveforum",method=RequestMethod.POST)		//To save the forum
 public ResponseEntity<?> saveForum(@RequestBody Forum forum, HttpSession session)
 {
 	if(session.getAttribute("username")==null){
@@ -55,7 +55,7 @@ public ResponseEntity<?> saveForum(@RequestBody Forum forum, HttpSession session
 	}
 }
 
-@RequestMapping(value="/getforumstatus/{status}",method=RequestMethod.GET)
+@RequestMapping(value="/getforumstatus/{status}",method=RequestMethod.GET)		//To get the approved or unapproved forums
 public ResponseEntity<?> getstatusforums(@PathVariable("status") int status,HttpSession session){
 	if(session.getAttribute("username")==null){
 		Error error=new Error(5,"Unauhorized");
@@ -67,7 +67,7 @@ public ResponseEntity<?> getstatusforums(@PathVariable("status") int status,Http
 	
 }
 
-@RequestMapping(value="/updateforum",method=RequestMethod.PUT)
+@RequestMapping(value="/updateforum",method=RequestMethod.PUT)		//To approve the forum
 public ResponseEntity<?> updateforum(@RequestBody Forum forum,HttpSession session){
 	
 	System.out.println("in controller");
@@ -76,9 +76,9 @@ public ResponseEntity<?> updateforum(@RequestBody Forum forum,HttpSession sessio
 		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);	
 	}
 	try{
-		System.out.println(forum.isForumstatus());
+		
 	forumDao.updateforum(forum);
-	System.out.println(forum.isForumstatus());
+	
 	return new ResponseEntity<Void>(HttpStatus.OK);
 	
 	}
@@ -89,26 +89,26 @@ public ResponseEntity<?> updateforum(@RequestBody Forum forum,HttpSession sessio
 	
 }
 
-@RequestMapping(value="/getforumbyid/{forumid}", method=RequestMethod.GET)
+@RequestMapping(value="/getforumbyid/{forumid}", method=RequestMethod.GET)		//To get the perticular Forum
 public ResponseEntity<?> getForumById(@PathVariable("forumid") int forumid,HttpSession session)
 {
-	System.out.println("in controller");
+	
 	if(session.getAttribute("username")==null)
 	{
 		Error error=new Error(5,"Unauthorized");
 		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 	}
 	Forum forum=forumDao.getforumById(forumid);
-	System.out.println(forum.getForumid());
-	//System.out.println(job.getJtitle());
+	
+	
 	return new ResponseEntity<Forum>(forum,HttpStatus.OK);
 	
 }
 
-@RequestMapping(value="/forumcomments/{forumid}", method=RequestMethod.GET)
+@RequestMapping(value="/forumcomments/{forumid}", method=RequestMethod.GET) //To get the perticular Forum comments
 public ResponseEntity<?> forumComments(@PathVariable("forumid") int forumid,HttpSession session)
 {
-	System.out.println("in controller");
+	
 	if(session.getAttribute("username")==null)
 	{
 		Error error=new Error(5,"Unauthorized");
@@ -116,12 +116,12 @@ public ResponseEntity<?> forumComments(@PathVariable("forumid") int forumid,Http
 	}
 	List<ForumComment> commentlist=forumDao.getCommentsByForumId(forumid);
 	
-	//System.out.println(job.getJtitle());
+	
 	return new ResponseEntity<List<ForumComment>>(commentlist,HttpStatus.OK);
 	
 }
 
-@RequestMapping(value="/saveforumcomment",method=RequestMethod.POST)
+@RequestMapping(value="/saveforumcomment",method=RequestMethod.POST)		//To save the forum Comment
 public ResponseEntity<?> blogComment(@RequestBody ForumComment forumcomment,HttpSession session)
 {
 	

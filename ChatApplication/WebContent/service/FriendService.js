@@ -26,7 +26,7 @@ app.factory('FriendService',function($http){
 	
 	friendService.getUserDetails=function(fromId)
 	{
-		alert("in service")
+		
 		return $http.get(MAINURL+"/getuserdetails/"+fromId)
 	}
 	friendService.getlistOfFriends=function()

@@ -120,6 +120,22 @@ app.run(function ($rootScope,$cookieStore,UserService,JobService,$location){
 			$rootScope.currentUser=$cookieStore.get("currentUser")
 			
 			
+			$rootScope.userLogout=function(){
+
+			UserService.userLogout().then(function(response){
+				console.log(response.status)
+				alert("logged out")
+				delete $rootScope.currentUser
+				$cookieStore.remove("currentUser")
+				$location.path("/login")
+			},function(response){
+				console.log(response.status)
+				console.log(response.data)
+				$location.path("/signup")
+			})
+		}
+
+			
 	})
 
 	

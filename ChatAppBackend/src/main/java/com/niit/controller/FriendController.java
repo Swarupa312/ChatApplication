@@ -29,7 +29,7 @@ public class FriendController
 	@Autowired
 	UserDao userDao;
 	
-	@RequestMapping(value="/getsuggestedusers",method=RequestMethod.GET)
+	@RequestMapping(value="/getsuggestedusers",method=RequestMethod.GET)	//To get the suggested friends to user
 	public ResponseEntity<?> getSuggestedUsers(HttpSession session)
 	{
 		if(session.getAttribute("username")==null){
@@ -42,7 +42,7 @@ public class FriendController
 		return new ResponseEntity<List<User>>(friendlist,HttpStatus.OK);
 		
 	}
-	@RequestMapping(value="/friendrequest/{toId}",method=RequestMethod.POST)
+	@RequestMapping(value="/friendrequest/{toId}",method=RequestMethod.POST)		//To send the friend request to perticular user
 	public ResponseEntity<?> friendRequest(@PathVariable String toId,HttpSession session)
 	{
 		
@@ -57,7 +57,7 @@ public class FriendController
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
-	@RequestMapping(value="/pendingrequests",method=RequestMethod.GET)
+	@RequestMapping(value="/pendingrequests",method=RequestMethod.GET)		//To get the users with pending requests
 	public ResponseEntity<?> getPendingRequests(HttpSession session)
 	{
 		if(session.getAttribute("username")==null){
@@ -71,7 +71,7 @@ public class FriendController
 		
 	}
 	
-	@RequestMapping(value="/updaterequest", method=RequestMethod.POST)
+	@RequestMapping(value="/updaterequest", method=RequestMethod.POST)	//To approve or reject the request
 	public ResponseEntity<?> updateRequest(@RequestBody Friend requestupdate,HttpSession session)
 	{
 		if(session.getAttribute("username")==null){
@@ -84,7 +84,7 @@ public class FriendController
 		
 	}
 	
-	@RequestMapping(value="/getuserdetails/{fromId}", method=RequestMethod.GET)
+	@RequestMapping(value="/getuserdetails/{fromId}", method=RequestMethod.GET)	//To get the particular friend profile
 	public ResponseEntity<?> getUserDetails(@PathVariable String fromId,HttpSession session)
 	{
 		if(session.getAttribute("username")==null){
@@ -94,7 +94,7 @@ public class FriendController
 		User user=userDao.validateUsername(fromId);
 		return new ResponseEntity<User>(user,HttpStatus.OK);
 	}
-	@RequestMapping(value="/getfriendlist", method=RequestMethod.GET)
+	@RequestMapping(value="/getfriendlist", method=RequestMethod.GET) 	//To get the friend list
 	public ResponseEntity<?> listOfFriends(HttpSession session)
 	{
 		if(session.getAttribute("username")==null){

@@ -18,30 +18,7 @@ app.controller('ForumController',function($scope,$location,ForumService){
 		$location.path('/login')
 	})
 	
-	/*$scope.getForumComments=function(forumid)
-	{
-		alert("in controller")
-	ForumService.getForumsComments(forumid).then(function(response){
-	$scope.comments=response.data;
-		
-	},function(response){
-		$location.path('/login')
-	})
 	
-	}*/
-	
-	/*$scope.saveForumcomment=function(){
-		//alert(forumdetails)
-		ForumService.saveForumcomment(forumid).then(function(response){
-			alert("Saved successfully")
-		},function(response){
-			console.log(response.status)
-			if(response.status==401)
-			$location.path('/login')
-			$scope.error=response.data
-			console.log(error.message)
-		})
-	}*/
 	
 	$scope.saveForum=function()
 {
@@ -71,23 +48,11 @@ $scope.updateForum=function(forumlist,forumstatus){
 		})
 	}
 
-$scope.askquestionenable=function()
+$scope.askquestionenable=function() //to show the textbox for new Forum on clicking Ask Question Button
 {
 $scope.question=true	
 }
-/*$scope.forumDetails=function(forumid){
-	
-ForumService.forumDetails(forumid).then(function(response){
-	console.log(response.data)
-	$scope.forumdetails=response.data
-	$location.path('/forumdetails')
-},function(response){
-	error=response.data
-	alert(error.message)
-	
-})*/
-//}
-	
+
 
 
 

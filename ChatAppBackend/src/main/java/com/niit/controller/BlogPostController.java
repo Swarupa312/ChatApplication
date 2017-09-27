@@ -28,7 +28,7 @@ public class BlogPostController
 @Autowired
 UserDao userDao;
 
-@RequestMapping(value="/saveblog",method=RequestMethod.POST)
+@RequestMapping(value="/saveblog",method=RequestMethod.POST) 	//To save the blog
 public ResponseEntity<?> saveBlog(@RequestBody BlogPost blogpost,HttpSession session)
 {
 	
@@ -41,7 +41,7 @@ public ResponseEntity<?> saveBlog(@RequestBody BlogPost blogpost,HttpSession ses
 	blogpost.setBlogdate(new Date());
 	blogpost.setAuthor(user);
 	try{
-		blogpostDao.saveBlog(blogpost);
+		blogpostDao.saveBlog(blogpost);		//calls the DAOIMPL method
 		return new ResponseEntity<BlogPost>(blogpost,HttpStatus.OK);
 	}catch(Exception e){
 		Error error=new Error(1,"Unable to save the blog");
@@ -50,7 +50,7 @@ public ResponseEntity<?> saveBlog(@RequestBody BlogPost blogpost,HttpSession ses
 	
 	
 }
-@RequestMapping(value="/getblog/{approved}",method=RequestMethod.GET)
+@RequestMapping(value="/getblog/{approved}",method=RequestMethod.GET) //To get the blog list which are approved or unapproved approved=1, unapproved=0
 public ResponseEntity<?> getBlog(@PathVariable("approved") int approved,HttpSession session){
 	if(session.getAttribute("username")==null){
 		Error error=new Error(5,"Unauhorized");
@@ -63,7 +63,7 @@ public ResponseEntity<?> getBlog(@PathVariable("approved") int approved,HttpSess
 }
 
 
-@RequestMapping(value="/getblogbyid/{blogid}",method=RequestMethod.GET)
+@RequestMapping(value="/getblogbyid/{blogid}",method=RequestMethod.GET) //To get the perticular blog
 public ResponseEntity<?> getBlogById(@PathVariable("blogid") int blogid,HttpSession session){
 	if(session.getAttribute("username")==null){
 		Error error=new Error(5,"Unauhorized");
@@ -76,7 +76,7 @@ public ResponseEntity<?> getBlogById(@PathVariable("blogid") int blogid,HttpSess
 	
 }
 
-@RequestMapping(value="/updateblog",method=RequestMethod.PUT)
+@RequestMapping(value="/updateblog",method=RequestMethod.PUT) 	//To Approve the blog
 public ResponseEntity<?> updateBlog(@RequestBody BlogPost blogpost, HttpSession session){
 	
 	
@@ -97,28 +97,9 @@ public ResponseEntity<?> updateBlog(@RequestBody BlogPost blogpost, HttpSession 
 }
 
 
-/*@RequestMapping(value="/updateblog",method=RequestMethod.PUT)
-public ResponseEntity<?> updateBlog(@RequestBody BlogPost blogpost, HttpSession session){
-	
-	
-	if(session.getAttribute("username")==null){
-		Error error=new Error(5,"Unauthorized");
-		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);	
-	}
-	try{
-	blogpostDao.updateBlog(blogpost);
-	
-	return new ResponseEntity<BlogPost>(blogpost,HttpStatus.OK);
-	
-	}
-	catch(Exception e){
-		Error error=new Error(1,"Unable to make changes please do again!!"+e.getMessage());
-		return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);	
-	}
-}*/
 
 
-@RequestMapping(value="/commentblog",method=RequestMethod.POST)
+@RequestMapping(value="/commentblog",method=RequestMethod.POST) 		//To comment the blog
 public ResponseEntity<?> blogComment(@RequestBody BlogComment blogcomment,HttpSession session)
 {
 	if(session.getAttribute("username")==null){
@@ -138,7 +119,7 @@ public ResponseEntity<?> blogComment(@RequestBody BlogComment blogcomment,HttpSe
 	}
 	
 }
-@RequestMapping(value="/getcomments/{blogid}", method=RequestMethod.GET)
+@RequestMapping(value="/getcomments/{blogid}", method=RequestMethod.GET) 		//To get the comments of perticular blog
 public ResponseEntity<?> getblogcomments(@PathVariable("blogid") int blogid,HttpSession session)
 {
 	

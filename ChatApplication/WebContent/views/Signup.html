@@ -33,11 +33,27 @@
 background-color:#00CED1;
 }
 
+
+
 </style>
 
 
 
+<script type="text/javascript">
+function checkPass()
+{
+	var x=document.getElementById("userpass").value;
+	var y=document.getElementById("cpass").value;
+	if(x!=y)
+	{
+		alert("both passwords should be same");
+		document.getElementById("cpass").focus();
+		
+	}
 
+	
+}
+</script>
 <div class="container">
 
     <div class="row">
@@ -51,9 +67,13 @@ background-color:#00CED1;
             <p ng-show="signupform.UserName.$error.minlength || signupform.UserName.$error.maxlength" style="color:red">User name should be 5-10 characters</p>
               First name -<input type="text" class="form-control" ng-model="user.firstname" required>
                Last name -<input type="text" class="form-control" ng-model="user.lastname" required>
-              Email -<input type="text" class="form-control" ng-model="user.email" required>
-              password - <input type="password" class="form-control" ng-model="user.password" required>
-               Confirm Password -<input type="password" class="form-control" name="Confirm Password" required>
+              Email -<input type="email" class="form-control" ng-model="user.email" required>
+              password - <input type="password" name="Pass_Word"  id="userpass" class="form-control" ng-model="user.password" required>
+               Confirm Password -<input type="password" name="C_Pass_Word" id="cpass" class="form-control" name="Confirm Password" required onblur="checkPass()">
+               
+               
+            
+               
                 Phone number -<input type="text" name="Phone" class="form-control" ng-model="user.phonenumber" required ng-minlength="10" ng-maxlength="10"><br>
           <p ng-show="signupform.Phone.$error.minlength || signupform.Phone.$error.maxlength " style="color:red">Phone number should be of 10 digits</p>
           

@@ -26,7 +26,7 @@ public class JobController
 	@Autowired
 	JobDao jobDao;
 	
-	@RequestMapping(value="/savejob",method=RequestMethod.POST)
+	@RequestMapping(value="/savejob",method=RequestMethod.POST) 		//To save the Job
 	public ResponseEntity<?>saveJob(@RequestBody Job job,HttpSession session)
 	{
 		if(session.getAttribute("username")==null)
@@ -57,7 +57,7 @@ public class JobController
 			}
 	}
 	
-	@RequestMapping(value="/showjob", method=RequestMethod.GET)
+	@RequestMapping(value="/showjob", method=RequestMethod.GET)		//To show all jobs
 	public ResponseEntity<?> showJob(HttpSession session)
 	{
 		if(session.getAttribute("username")==null)
@@ -70,10 +70,10 @@ public class JobController
 		
 	}
 	
-	@RequestMapping(value="/getjobbyid/{jid}", method=RequestMethod.GET)
+	@RequestMapping(value="/getjobbyid/{jid}", method=RequestMethod.GET)	//To get particular
 	public ResponseEntity<?> getJobById(@PathVariable("jid") int jid,HttpSession session)
 	{
-		System.out.println("in controller");
+		
 		if(session.getAttribute("username")==null)
 		{
 			Error error=new Error(5,"Unauthorized");

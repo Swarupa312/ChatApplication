@@ -43,27 +43,11 @@ $scope.userLogin=function(){
 			},function(response){
 			console.log(response.status)
 			console.log(response.data)
-			error=response.data
-			alert(error.message)
 			$location.path('/login')
 			
 		})
 	}
 
-$scope.userLogout=function(){
-
-	UserService.userLogout().then(function(response){
-		console.log(response.status)
-		alert("logged out")
-		delete $rootScope.currentUser
-		$cookieStore.remove("currentUser")
-		$location.path("/login")
-	},function(response){
-		console.log(response.status)
-		console.log(response.data)
-		$location.path("/signup")
-	})
-}
 
 $scope.updateUser=function(){
 	

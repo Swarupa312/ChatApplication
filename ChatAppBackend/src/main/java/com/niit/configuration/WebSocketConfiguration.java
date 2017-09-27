@@ -26,8 +26,8 @@ public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer
 	public void configureMessageBroker(MessageBrokerRegistry configurer) 
 	{
 		System.out.println("CONFIGURE MESSAGE BROKER REGISTRY");
-		configurer.enableSimpleBroker("/queue/", "/topic/");
-		configurer.setApplicationDestinationPrefixes("/app");
+		configurer.enableSimpleBroker("/queue/", "/topic/");  // TO send the message from spring controller to Client(Client endpoints)
+		configurer.setApplicationDestinationPrefixes("/app");  // TO send the message from client to Spring Controller(Server endpoints)
 	}
 	
 	

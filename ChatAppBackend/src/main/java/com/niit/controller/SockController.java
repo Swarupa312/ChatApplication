@@ -43,32 +43,30 @@ public class SockController
 		this.messagingTemplate = messagingTemplate;
 	}
 	
-@SubscribeMapping("/join/{username}")
+@SubscribeMapping("/join/{username}")		//To subscribe  with server
 public List<String> join(@DestinationVariable("username") String username)
 	{
-	System.out.println("//////////////////////////////////////////////////");
-	System.out.println("username in sockcontroller" + username);
+	
+	
 	if(!users.contains(username))
 		users.add(username);
 	messagingTemplate.convertAndSend("/topic/join", username);
 	return users;
 	}
 
-@MessageMapping(value="/chat")
+@MessageMapping(value="/chat") 	//To chat with other users
 public void chatRecieved(Chat chat)
 {
-	System.out.println("From value in chatreceived in chat object " + chat.getFrom());
-
-	System.out.println(chat.getFrom());
+	
 
 	if("all".equals(chat.getTo()))
 	{
-		System.out.println("IN CHAT REVEIVED " + chat.getMessage() + " " + chat.getFrom() + " to " + chat.getTo());
+		
 		messagingTemplate.convertAndSend("/queue/chats", chat);
 	}
 	else
 	{
-		System.out.println("CHAT TO " + chat.getTo() + " From " + chat.getFrom() + " Message " + chat.getMessage());
+		
 		messagingTemplate.convertAndSend("/queue/chats/"+chat.getTo(), chat);
 		messagingTemplate.convertAndSend("/queue/chats/"+chat.getFrom(), chat);
 		

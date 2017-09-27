@@ -65,10 +65,10 @@ background-color:#00CED1;
                 <img class="profile-img" src="images/login.png"
                     alt="">
                 <form class="form-Login" name="loginform"  novalidate>
-                <input type="text" name="user_name" class="form-control" placeholder="User name" ng-model="user.username" required>
-                <p ng-show="!loginform.user_name.$invalid" style="color:red">User name should not be blank</p>
+                <input type="text" name="EmailId" class="form-control" placeholder="Email ID" ng-model="user.email" required>
+                <p ng-show="!loginform.EmailId.$invalid" style="color:red">User name should not be blank</p>
                 <input type="password" class="form-control" placeholder="Password" name="pass_word" ng-model="user.password" required><br>
-               <!--  <p ng-show="loginform.password.$invalid && loginform.password.$dirty" style="color:red">Password can not be blank</p> -->
+                -->
                 <p ng-show="!loginform.pass_word.$invalid" style="color:red">Not blank</p>
                 <button class="btn btn-block" type="submit" ng-click="userLogin()" ng-disabled="loginform.$invalid">
                     Log in</button>

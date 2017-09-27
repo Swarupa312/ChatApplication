@@ -2,7 +2,7 @@
  * 
  */
 app.controller('BlogPostController',function(BlogPostService,$scope,$location){
-	
+	//TO get the blogs waiting for approval
 	BlogPostService.getBlogPostWaiting().then(function(response){
 	$scope.blogwaiting=response.data;
 		
@@ -10,6 +10,7 @@ app.controller('BlogPostController',function(BlogPostService,$scope,$location){
 		$location.path('/login')
 	})
 	
+	//To get the blogs approved
 	BlogPostService.getBlogPostapproved().then(function(response){
 	$scope.blogapproved=response.data;
 		

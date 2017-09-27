@@ -11,11 +11,13 @@ app.factory('ForumService',function($http){
 	
 	forumservice.getforumsWaiting=function(){
 
+		
+		//forumlist of unapproved forums
 		return $http.get(MAINURL+"/getforumstatus/"+0)
 	}
 	
 	forumservice.getforumsapproved=function(){
-		return $http.get(MAINURL+"/getforumstatus/"+1)
+		return $http.get(MAINURL+"/getforumstatus/"+1)		//forumlist of approved forums
 	}
 	
 	forumservice.updateforum=function(forumlist){

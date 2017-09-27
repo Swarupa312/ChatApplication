@@ -22,7 +22,7 @@ public class UserController
 	@Autowired
 	UserDao userDao;
 	
-	@RequestMapping(value="/registeruser",method=RequestMethod.POST)
+	@RequestMapping(value="/registeruser",method=RequestMethod.POST) 	//To save the new User
 	public ResponseEntity<?> registerUser(@RequestBody User user)
 	{
 		try
@@ -53,7 +53,7 @@ public class UserController
 		}
 		
 	}
-	@RequestMapping(value="/loginUser",method=RequestMethod.POST)
+	@RequestMapping(value="/loginUser",method=RequestMethod.POST) 	//Login 
 	public ResponseEntity<?>loginUser(@RequestBody User user,HttpSession session)
 	{
 		
@@ -73,7 +73,7 @@ public class UserController
 		
 	}
 	
-	@RequestMapping(value="/logotUser",method=RequestMethod.POST)
+	@RequestMapping(value="/logotUser",method=RequestMethod.POST)	//Logout
 	public ResponseEntity<?> logoutUser(HttpSession session){
 	
 		String username=(String) session.getAttribute("username");
@@ -90,7 +90,7 @@ public class UserController
 	
 	
 	
-	@RequestMapping(value="/getuser", method=RequestMethod.GET)
+	@RequestMapping(value="/getuser", method=RequestMethod.GET)		//To get the particular User
 	public ResponseEntity<?> getuser(HttpSession session){
 		if(session.getAttribute("username")==null){
 			Error error=new Error(5,"Unauthorized");
@@ -101,7 +101,7 @@ public class UserController
 		return new ResponseEntity<User>(user,HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/updateuser",method=RequestMethod.PUT)
+	@RequestMapping(value="/updateuser",method=RequestMethod.PUT)	//To update the user details
 	public ResponseEntity<?> updateUser(@RequestBody User user, HttpSession session){
 		
 		

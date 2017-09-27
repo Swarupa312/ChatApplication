@@ -7,7 +7,7 @@ app.controller('JobController', function(JobService,$scope,$location,$rootScope)
 		
 		JobService.showJob().then(function(response){
 		$scope.jobs=response.data;
-		//$scope.rowLimit=1
+		
 		},function(response){
 		console.log(response.status)
 		$location.path('/home')
@@ -34,7 +34,7 @@ app.controller('JobController', function(JobService,$scope,$location,$rootScope)
 }
 	
 	$scope.getJobById=function(jid){
-		$scope.showjob=true
+		$scope.showjob=true 	//to show the job details
 		JobService.getJobById(jid).then(function(response){
 			console.log(response.data)
 			$scope.jobid=response.data

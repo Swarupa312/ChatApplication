@@ -26,10 +26,10 @@ public class ProfilePictureController
 	ProfilePictureDao profilepictureDao;
 	@Autowired
 	UserDao userDao;
-	@RequestMapping(value="/uploadprofile",method=RequestMethod.POST)
+	@RequestMapping(value="/uploadprofile",method=RequestMethod.POST) //To upload the new Profile pic
 	public ResponseEntity<?> uploadProfilePic(@RequestParam CommonsMultipartFile pimage,HttpSession session)
 	{
-		//User user=(User)session.getAttribute("username");
+		
 		String username=(String) session.getAttribute("username");
 		User user=userDao.validateUsername(username);
 		if(user==null)
@@ -44,7 +44,7 @@ public class ProfilePictureController
 		return new ResponseEntity<User>(user,HttpStatus.OK);
 		
 	}
-	@RequestMapping(value="/getprofilepic/{username}", method=RequestMethod.GET)
+	@RequestMapping(value="/getprofilepic/{username}", method=RequestMethod.GET)		//To get the profile pic of particular User
 	public @ResponseBody byte[] getProfilePic(@PathVariable String username,HttpSession session){
 		String username1=(String) session.getAttribute("username");
 		User user=userDao.validateUsername(username1);

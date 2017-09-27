@@ -9,11 +9,12 @@ app.factory('BlogPostService',function($http){
 	}
 	
 	blogpostservice.getBlogPostWaiting=function(){
-
+		//Unapproved Blog list 
 		return $http.get(MAINURL+"/getblog/"+0)
 	}
 	
 	blogpostservice.getBlogPostapproved=function(){
+		//Approved Blog list
 		return $http.get(MAINURL+"/getblog/"+1)
 	}
 	blogpostservice.getBlogById=function(blogid){

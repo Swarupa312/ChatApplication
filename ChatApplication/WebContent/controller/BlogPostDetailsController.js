@@ -17,8 +17,7 @@ app.controller('BlogPostDetailsController',function($scope,$location,$routeParam
 		
 		BlogPostService.updateBlog($scope.blog).then(function(response){
 			$location.path('/viewblog')
-			/*console.log(response.data)
-			$scope.blognotify=response.data*/
+			console.log(response.data)
 			
 		},function(response){
 			console.log(response.data)
@@ -44,23 +43,7 @@ app.controller('BlogPostDetailsController',function($scope,$location,$routeParam
 			})
 		}
 		
-		 /*function showComments(){
-			
-			BlogPostService.showComments(blogid).then(function(response){
-				console.log(response.data)
-				console.log(response.status)
-				$scope.blogcomments=response.data
-				
-				
-			},function(response)
-			{
-				console.log(response.status)
-				if(response.status==401)
-				$location.path('/login')
-				$scope.error=response.data
-				
-			})
-		}*/
+		 
 		
 		$scope.showComments=function(blogid){
 			
@@ -79,5 +62,5 @@ app.controller('BlogPostDetailsController',function($scope,$location,$routeParam
 				
 			})
 		}
-		 //showComments();
+		 
 })
